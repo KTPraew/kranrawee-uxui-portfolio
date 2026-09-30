@@ -1,0 +1,434 @@
+/* ============================================
+   COMING SOON — page-only styles for
+   projects/coming-soon.html. All --cs-* custom
+   properties are declared once, here, at the top.
+   Everything else reads var(--pj-*) from tokens.css
+   or reuses existing components (.pj-card, .btn-resume,
+   .footer, the .anim-* system). Loaded after project.css.
+   ============================================ */
+
+:root {
+  --cs-col: min(720px, 100% - 32px);
+  --cs-blue: #3B86F6;       /* send button + typing cursor (eyedropper) */
+  --cs-check: #F2BD41;      /* ready-row circle (eyedropper) */
+  --cs-note-text: #604437;  /* italic paragraph under the note (eyedropper) */
+  --cs-idle: #6B6B6B;       /* not-ready row label; 5.33:1 on white, passes 4.5:1 */
+  --cs-highlight: color-mix(in srgb, var(--cs-check) 30%, white);
+  --cs-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  /* var(--pj-pink-text) alone measures 4.22:1 on the note's rendered paper
+     (#F0F0F0) — below 4.5:1; darkened toward black until it clears */
+  --cs-note-pink: color-mix(in srgb, var(--pj-pink-text) 88%, black);
+}
+
+/* every hidden/visible text pair on this page relies on the [hidden]
+   attribute; .cs-tilt-label (and friends) set their own `display`, which
+   as an author rule beats the UA's [hidden]{display:none}, so it must be
+   restated here with !important to actually hide the element */
+.cs-stage [hidden] {
+  display: none !important;
+}
+
+/* ---------- checker band ---------- */
+.cs-checker {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  background-image: var(--pink-bg);
+  background-repeat: repeat;
+  background-position: top left;
+}
+@media (max-width: 768px) {
+  .cs-checker { height: 120px; }
+}
+
+body { background: var(--pj-bg); }
+
+/* ---------- stage ---------- */
+.cs-stage {
+  position: relative;
+  overflow-x: clip;
+  padding-top: 80px;
+}
+@media (max-width: 768px) {
+  .cs-stage { padding-top: 40px; }
+}
+
+/* ---------- note ---------- */
+.cs-note {
+  width: var(--cs-col);
+  margin: 0 auto;
+  position: relative;
+  container-type: inline-size;
+}
+.cs-note-card {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+/* full page width, 1:1 with the source frame — no cqw math, no
+   mask-image; its own top/bottom tangles are meant to run off the left
+   and right screen edges exactly as exported */
+.cs-ribbon {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .cs-ribbon { display: none; }
+}
+
+.cs-note-text {
+  position: absolute;
+  z-index: 3;
+  left: 8%;
+  right: 8%;
+  top: 19.8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.cs-heading {
+  font-size: clamp(40px, 10cqw, 72px);
+}
+.cs-pink-text {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(16px, 3.4cqw, 24px);
+  line-height: 1.3;
+  color: var(--cs-note-pink);
+  max-width: 58cqw;
+  margin: 12.6cqw auto 0;
+}
+/* the generic copy is a few characters longer; without more room it wraps
+   to 4 lines at some widths, so only this variant gets extra max-width
+   (never a smaller font) */
+#cs-pink-generic {
+  max-width: 64cqw;
+}
+
+/* ---------- row: paragraph + CTA ---------- */
+.cs-row {
+  width: var(--cs-col);
+  margin: 16px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+}
+.cs-paragraph {
+  padding-left: 8%;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--cs-note-text);
+  margin: 0;
+}
+.cs-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.cs-tilt-wrap {
+  position: relative;
+  margin-bottom: 6px;
+  max-width: calc(100% + 24px);
+}
+.cs-tilt-label {
+  display: inline-block;
+  background: #fff;
+  border: 1.5px solid var(--teal-text);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--teal-text);
+  margin: 0;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .cs-tilt-label { white-space: normal; max-width: 100%; }
+}
+@media (min-width: 769px) {
+  .cs-tilt-wrap { max-width: none; }
+}
+
+/* View button — reuses .btn-resume / .btn-resume-shadow / .btn-resume-front
+   for the exact same box size, hover-lift and press-down mechanic as
+   "Download My Resume" on the homepage (both already live in the shared
+   css/components.css, not a homepage-only file, so there was nothing to
+   move). The Resume button's own shadow/front artwork is two SVGs with
+   "Download" / "My Resume" baked in as vector paths (no live text), which
+   can't take a per-project name — this file overrides only the frame's
+   fill (a plain box instead of that image) and lays out our own icon +
+   two live text lines inside it, at the same fixed 252x123 canvas
+   measured from the real button. A text-free version of that frame
+   artwork (e.g. btn-resume-front-blank.svg) would let this become a
+   pixel-identical reuse instead of a rebuild — see report. */
+.cs-view-btn {
+  width: 252px;
+  height: 123px;
+}
+.cs-view-shadow {
+  /* the Resume shadow SVG always peeks ~10px past the front box on its
+     own bottom-right (measured from a real render), even at rest — its
+     own artwork sits at that offset inside an identically-positioned
+     252x123 canvas; this rebuild gets the same look by moving the box
+     itself, since there's no artwork to offset within */
+  top: 10px;
+  left: 10px;
+  width: 252px;
+  height: 123px;
+  border-radius: 6px;
+  background: var(--teal-text);
+}
+.cs-view-front {
+  width: 252px;
+  height: 123px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  border: 4px solid var(--teal-text);
+  border-radius: 6px;
+  background: #fff;
+}
+.cs-view-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 73px;
+  height: auto;
+  pointer-events: none;
+}
+.cs-view-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  min-width: 0;
+}
+.cs-view-line1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--teal-text);
+  line-height: 1.3;
+}
+.cs-view-line2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: #1c1c1c;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .cs-row { grid-template-columns: 1fr; }
+  .cs-cta { margin-top: 24px; align-items: flex-start; }
+}
+
+/* ---------- chat bar ---------- */
+.cs-chat {
+  position: relative;
+  width: var(--cs-col);
+  margin: 72px auto 0;
+  background: var(--pj-well);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: var(--pj-card-shadow);
+}
+@media (max-width: 768px) {
+  .cs-chat { margin-top: 48px; }
+}
+.cs-chat-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 0 6px 0 6px;
+}
+.cs-chat-plus,
+.cs-chat-send {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: default;
+}
+.cs-chat-plus {
+  width: 40px;
+  height: 40px;
+  background: var(--pj-well);
+  color: #6b6b6b;
+  margin-left: 6px;
+}
+.cs-chat-send {
+  width: 44px;
+  height: 44px;
+  background: var(--cs-blue);
+  color: #fff;
+}
+.cs-chat-text {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--cs-sans);
+  font-size: 20px;
+  color: #1c1c1c;
+  margin: 0;
+  position: relative;
+}
+.cs-chat-text .anim-type-cursor {
+  width: 2px;
+  height: 1.1em;
+  background: var(--cs-blue);
+  margin-left: 2px;
+}
+/* no-JS and reduced-motion (setupTyping never runs, so .anim-type-wrap
+   never gets added): a plain static cursor bar, always at the end of the
+   full, un-typed text */
+#cs-prompt-text:not(.anim-type-wrap)::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: middle;
+  background: var(--cs-blue);
+}
+.cs-bow {
+  position: absolute;
+  right: calc(100% - 12px);
+  top: -97px;
+  width: 185px;
+  height: auto;
+  pointer-events: none;
+}
+@media (max-width: 1140px) {
+  .cs-bow { display: none; }
+}
+
+/* ---------- list ---------- */
+.cs-list-card {
+  width: var(--cs-col);
+  margin: 24px auto 0;
+  padding: 20px 32px;
+  /* target: (card bottom) to (wave crest, its highest visible point) =
+     var(--pj-section-gap) * 1.25. The footer's own margin-top (also
+     --pj-section-gap) collapses with this margin (same element, no BFC
+     between them), and the wave itself is shifted up by 99% of its own
+     height (translateY(-99%) in components.css) and scales with 100% of
+     the full-bleed footer width (85/1440 natural ratio) — both measured,
+     not guessed; see report for the getBoundingClientRect readouts. */
+  margin-bottom: calc(var(--pj-section-gap) * 1.25 + 5.844vw);
+}
+.cs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* .pj-card ul li::before (project.css) draws a green marker dot on any
+   list inside a .pj-card — .cs-list-card is one, so it leaks in here.
+   That selector (.pj-card ul li::before) is more specific than a single
+   extra class, so a same-weight override silently loses; !important is
+   the only way to cancel it without touching project.css itself, and
+   it's scoped tightly to .cs-list only. */
+.cs-list-card .cs-list li::before {
+  content: none !important;
+}
+.cs-list li::marker {
+  content: '';
+}
+.cs-list li {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+.cs-list li + li {
+  margin-top: 0;
+}
+.cs-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 48px;
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--cs-sans);
+}
+.cs-circle {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d6d6d6;
+}
+.cs-circle--ready {
+  border: none;
+  background: var(--cs-check);
+}
+.cs-check-path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cs-name {
+  font-size: 20px;
+  color: #1c1c1c;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+  background-image: linear-gradient(var(--cs-highlight), var(--cs-highlight));
+  padding: 2px 6px;
+  margin: -2px -6px;
+  border-radius: 6px;
+  transition: background-size 220ms ease;
+}
+.cs-name--idle {
+  color: var(--cs-idle);
+}
+a.cs-item:focus-visible {
+  outline: 3px solid var(--teal-text);
+  outline-offset: 4px;
+}
+@media (hover: hover) {
+  a.cs-item:hover .cs-name {
+    background-size: 100% 100%;
+  }
+}
+a.cs-item:focus-visible .cs-name {
+  background-size: 100% 100%;
+}
+li[data-status="not-ready"] {
+  cursor: default;
+}
+
+/* ---------- footer: no "Next project" button on this page ---------- */
+.cs-page-footer .pj-footer-nav {
+  justify-content: center;
+}
+
+@keyframes cs-send-bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(0.9); }
+  70%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}

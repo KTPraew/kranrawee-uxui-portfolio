@@ -1,0 +1,400 @@
+/* ============================================
+   Praew — Portfolio (cute scrapbook theme)
+   ============================================ */
+
+:root {
+  --pink-strong: #e985a1;
+  --pink-mid: #f6c3d8;
+  --pink-soft: #fce3ee;
+  --cream: #faf1dd;
+  --blue-stripe-a: #bfe6ea;
+  --blue-stripe-b: #d9f1f2;
+  --teal: #2f7b7e;
+  --teal-dark: #1f5c5f;
+  --brown: #4a2e22;
+  --ink: #2c3238;
+  --font-display: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  --font-script: 'Caveat', cursive;
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; color: inherit; }
+
+.page { position: relative; width: 100%; }
+
+/* ---------- reveal-on-scroll ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ============================================
+   HERO
+   Absolute, percentage-based layout that mirrors
+   the reference composition (2568 x 1772) exactly,
+   so every element keeps its relative position and
+   scale at any viewport width.
+   ============================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2568 / 1772;
+  background-image: url('../images/cute/bg-cover-pink.png');
+  background-size: cover;
+  background-position: top center;
+  overflow: hidden;
+}
+
+.hero-choc {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 3;
+}
+.hero-choc img { width: 100%; height: auto; display: block; }
+
+.logo-pixel {
+  position: absolute;
+  left: 7.8%;
+  top: 25.7%;
+  font-family: var(--font-pixel);
+  font-size: 2.6vw;
+  color: var(--brown);
+  letter-spacing: 1px;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.hero-names {
+  position: absolute;
+  left: 74.2%;
+  top: 30.5%;
+  width: 25.5%;
+  text-align: left;
+  z-index: 2;
+}
+.hero-names .name-main {
+  font-family: var(--font-display);
+  font-size: 6.6vw;
+  line-height: 1;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+}
+.hero-names .name-script {
+  font-family: var(--font-script);
+  font-size: 4.6vw;
+  line-height: 1;
+  color: var(--blue-stripe-a);
+  -webkit-text-stroke: 0.6px var(--teal-dark);
+  margin-top: 0.3vw;
+  white-space: nowrap;
+}
+
+.hero-collage-wrap img.collage {
+  position: absolute;
+  left: 22%;
+  top: 11%;
+  width: 54.2%;
+  z-index: 2;
+}
+
+.hero-cat {
+  position: absolute;
+  left: 10.15%;
+  top: 38.3%;
+  width: 16%;
+  z-index: 3;
+}
+.hero-tomatoes {
+  position: absolute;
+  left: 7.9%;
+  top: 59.6%;
+  width: 16%;
+  z-index: 3;
+}
+.hero-mintchoc {
+  position: absolute;
+  left: 73.1%;
+  top: 53%;
+  width: 24%;
+  z-index: 3;
+}
+
+.hero-badge {
+  position: absolute;
+  left: 27%;
+  top: 73.9%;
+  width: 44.2%;
+  z-index: 4;
+}
+
+/* ============================================
+   PROJECTS (cream section)
+   ============================================ */
+.projects {
+  position: relative;
+  background: var(--cream);
+  padding: 0 10.7vw 90px;
+}
+.projects-scallop-top {
+  position: relative;
+  margin: -70px -10.7vw 0;
+  height: 70px;
+  overflow: hidden;
+  line-height: 0;
+}
+.projects-scallop-top img { width: 100%; height: auto; display: block; }
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 8.1vw;
+  margin-left: -2.47vw;
+  margin-right: -4.55vw;
+  margin-bottom: 5.4vw;
+}
+.projects-title {
+  font-family: var(--font-display);
+  font-size: 6.1vw;
+  line-height: 1;
+  color: var(--teal-dark);
+  margin: 0;
+  font-weight: 700;
+}
+.projects-title .script {
+  display: block;
+  font-family: var(--font-script);
+  font-size: 5.8vw;
+  line-height: 1;
+  color: var(--teal);
+  margin-top: 0.9vw;
+  margin-left: 14.3vw;
+  font-weight: 700;
+}
+
+.resume-download-wrap {
+  position: relative;
+  display: inline-block;
+}
+.rd-shadow {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 100%;
+  height: 100%;
+  background: var(--teal);
+  border-radius: 18px;
+  z-index: 1;
+}
+.resume-download {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 3px solid var(--teal);
+  border-radius: 18px;
+  padding: 18px 34px 18px 18px;
+  background: #fff;
+  z-index: 2;
+}
+.resume-download img { width: 5.8vw; }
+.resume-download .rd-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.8vw;
+  color: var(--teal);
+  line-height: 1.2;
+}
+.resume-download .rd-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3.3vw;
+  color: #14161a;
+  line-height: 1.2;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.08vw 6.08vw;
+}
+.project-card2 a {
+  display: block;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.project-card2 a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+.project-card2 img { width: 100%; height: auto; display: block; }
+.project-caption {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1vw;
+  color: var(--pink-strong);
+  text-align: center;
+  margin-top: 3.08vw;
+}
+
+/* ============================================
+   ABOUT (blue stripe section)
+   ============================================ */
+.about {
+  position: relative;
+  background-color: var(--blue-stripe-a);
+  background-image: url('../images/cute/before-footer-bg.png');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding: 0 6vw 130px;
+}
+.about-scallop-top {
+  margin: -70px -6vw 0;
+  height: 70px;
+  overflow: hidden;
+  line-height: 0;
+}
+.about-scallop-top img { width: 100%; height: auto; display: block; }
+
+.about-title {
+  position: absolute;
+  left: 9.5vw;
+  top: 19.3vw;
+  line-height: 1;
+  z-index: 3;
+  font-family: var(--font-display);
+  font-size: 7.6vw;
+  color: var(--teal-dark);
+  margin: 0;
+  font-weight: 700;
+}
+.about-title .script {
+  display: block;
+  font-family: var(--font-script);
+  font-size: 5.6vw;
+  color: var(--blue-stripe-a);
+  -webkit-text-stroke: 1px var(--teal-dark);
+  margin-top: -0.05em;
+  margin-left: 6.65vw;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.about-grid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 4vw;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 6vw;
+}
+.about-polaroids { width: 41.5vw; max-width: none; }
+.about-card {
+  background: var(--cream);
+  border-radius: 22px;
+  padding: 3vw 3.2vw;
+  width: 36.6vw;
+  max-width: none;
+  position: relative;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.16);
+}
+.about-card .hi { font-family: var(--font-script); font-size: clamp(20px, 1.7vw, 28px); color: #2c2c2c; margin: 0 0 16px; font-weight: 700; }
+.about-card p { font-size: clamp(13px, 1.05vw, 17px); line-height: 1.65; color: #1c1c1c; margin: 0 0 18px; font-weight: 700; }
+.about-charm {
+  display: block;
+  margin: 8px auto 0;
+  width: 8.5vw;
+}
+
+/* ============================================
+   CONTACT / FOOTER
+   ============================================ */
+.footer-wrap {
+  position: relative;
+  background: var(--blue-stripe-a);
+}
+.footer-scallop {
+  position: relative;
+  line-height: 0;
+}
+.footer-scallop img { width: 100%; height: auto; display: block; }
+
+.contact {
+  position: relative;
+  background: var(--pink-strong);
+  padding: 12vw 2vw 50px;
+  text-align: center;
+}
+
+.contact-tomato {
+  position: absolute;
+  left: 50%;
+  top: -3vw;
+  width: 34vw;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.contact-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11.4vw;
+  line-height: 1;
+  color: var(--blue-stripe-a);
+  margin: 10px 0 40px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2vw;
+  color: #3a2a24;
+}
+.contact-info a:hover { text-decoration: underline; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .projects-header { flex-direction: column; }
+  .about-grid { flex-direction: column; align-items: center; }
+  .contact-info { flex-direction: column; gap: 12px; }
+  .project-grid { grid-template-columns: 1fr; }
+}

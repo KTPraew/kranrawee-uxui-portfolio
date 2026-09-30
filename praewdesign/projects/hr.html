@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>HR Management System | Praew Kranrawee, UX/UI Designer</title>
+<!-- favicon -->
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/favicon/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../assets/favicon/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<!-- /favicon -->
+<meta name="description" content="A human resources system for Subdistrict Administrative Organizations (SAO).">
+<meta property="og:image" content="assets/projects/hr/01-welcome.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/motion.css">
+<link rel="stylesheet" href="../css/project.css">
+<link rel="stylesheet" href="../css/themes.css">
+</head>
+<body class="theme-hr">
+
+<main>
+
+  <!-- HERO — 01-welcome.webp is 1920x1080 (1.78:1), not wider than 2.2:1,
+       so it sits in a .pj-scene under the text instead of a full-bleed
+       cover crop (see report: "Hero layout choice") -->
+  <!-- no cover-crop child here (see hero note above), so this section
+       needs its own height to clear .pj-back-top (44px tall, 24px from
+       top) before .pj-hero-body's content starts -->
+  <section class="pj-hero-cover" style="min-height: 96px;">
+    <a class="pj-back-top" href="../index.html#projects">← Back to main page</a>
+  </section>
+
+  <section class="pj-col pj-hero-body">
+    <h1 class="pj-title anim-rise">HR Management System</h1>
+    <p class="pj-lead pj-prose">Human resources system for Subdistrict Administrative Organizations (SAO)</p>
+    <p class="pj-body-text pj-prose">It turns complex civil service rules and regulations into a UI that works in real daily use.</p>
+
+    <figure class="pj-scene" style="margin-top: 0;">
+      <div class="pj-scene-media">
+        <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge HR system welcome screen">
+          <img src="../assets/projects/hr/01-welcome.webp" alt="Welcome screen for a Subdistrict Administrative Organization HR system, with a sidebar menu and a stock photo of coworkers celebrating at a desk" width="1920" height="1080">
+        </button>
+      </div>
+    </figure>
+
+    <dl class="pj-meta pj-meta--6" style="margin-top: var(--pj-gap);">
+      <div class="pj-meta-item anim-rise">
+        <dt>Client</dt>
+        <dd>Stella Plus</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Role</dt>
+        <dd>UX/UI Designer</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Tool</dt>
+        <dd>Figma</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Year</dt>
+        <dd>2024</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Project time</dt>
+        <dd>About 3 months (Design phase)</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Status</dt>
+        <dd>Completed and in use</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- PROBLEM / PROCESS -->
+  <section class="pj-col pj-section">
+    <div class="pj-headed-grid">
+      <div class="pj-headed-item anim-rise">
+        <h2>Problem</h2>
+        <div class="pj-card">
+          <div class="pj-card-body">
+            <p>Civil service HR follows strict and complex rules and regulations. Records specific to civil service, such as position history, rank, and royal decorations, sit alongside everyday HR data. The challenge was to turn these rules into a UI that works in real daily use.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pj-headed-item anim-rise" style="--delay:120ms;">
+        <h2>Process</h2>
+        <div class="pj-card">
+          <div class="pj-card-body">
+            <p>I worked with a design team, and we split the work by module. Over about 3 months of design, we focused on translating civil service regulations into a usable UI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEFINE — the 4 eligibility/approval/payroll/evaluation images still
+       don't exist; only define-system-map.webp was found (1 image,
+       data-count=1). -->
+  <section class="pj-band pj-section" id="define">
+    <div class="pj-col">
+      <h2 class="anim-rise">Define</h2>
+      <p class="pj-prose anim-rise" style="--delay:120ms;">Before designing screens, I mapped the structure of the system: login, organization, three roles (System Admin, HR Admin, and Employee), and five modules covering manpower, employee records, the organization chart, payroll, and benefits.</p>
+
+      <div class="pj-define-grid" data-count="1">
+        <figure class="pj-gallery-item pj-gallery-item--full anim-rise" style="--delay:240ms;">
+          <button type="button" class="pj-zoom-btn" aria-label="Enlarge system map">
+            <span class="pj-gallery-media">
+              <img src="../assets/projects/hr/define/define-system-map.webp" alt="System map: Login leads to Organize, then three roles (System Admin, HR Admin, and Employee), which connect to five modules: Manpower, Employee, Organize Chart, Payroll, and Benefits." width="1317" height="935" loading="lazy">
+            </span>
+          </button>
+          <figcaption>
+            <span class="pj-gallery-name">System map</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SYSTEM -->
+  <section class="pj-col pj-section">
+    <h2 class="anim-rise">Design system</h2>
+    <figure class="pj-scene">
+      <div class="pj-scene-media">
+        <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge HR design system style guide">
+          <img src="../assets/projects/hr/08-design-system.webp" alt="HR system design system page showing the color palette, typography scale, and Thai and English font samples" width="1040" height="1439">
+        </button>
+      </div>
+      <figcaption>Main color #00A07B. Typefaces: Poppins and Noto Sans Thai.</figcaption>
+    </figure>
+  </section>
+
+  <!-- KEY DECISIONS -->
+  <section class="pj-col pj-section">
+    <h2 class="anim-rise">Key decisions</h2>
+    <p class="pj-prose anim-rise" style="--delay:120ms;">Three decisions shaped how the rules show up in the UI.</p>
+
+    <div class="pj-section-heading" style="margin-top: calc(var(--pj-gap) * 2);">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">1</span>
+      <h3 class="anim-rise">Step-by-step progress tracker</h3>
+    </div>
+    <p class="pj-prose anim-rise" style="--delay:120ms;">Workflows with many steps need a clear sense of progress. A step-by-step tracker shows what is done, what is pending, and what comes next.</p>
+
+    <div class="pj-section-heading" style="margin-top: calc(var(--pj-gap) * 2);">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">2</span>
+      <h3 class="anim-rise">Tabbed employee profile</h3>
+    </div>
+    <p class="pj-prose anim-rise" style="--delay:120ms;">An employee profile holds a lot of information. Splitting it into tabs, such as royal decorations and important documents, lets users go straight to the section they need.</p>
+
+    <div class="pj-tabs anim-rise" style="--delay:240ms;">
+      <div class="pj-tablist" role="tablist" aria-label="Employee profile tabs">
+        <button type="button" class="pj-tab" role="tab" id="tab-profile" aria-selected="true" aria-controls="panel-profile">Profile</button>
+        <button type="button" class="pj-tab" role="tab" id="tab-royal" aria-selected="false" tabindex="-1" aria-controls="panel-royal">Royal decorations</button>
+        <button type="button" class="pj-tab" role="tab" id="tab-docs" aria-selected="false" tabindex="-1" aria-controls="panel-docs">Important documents</button>
+      </div>
+      <div class="pj-tab-panels">
+        <div class="pj-tab-panel is-active" role="tabpanel" id="panel-profile" aria-labelledby="tab-profile">
+          <p class="pj-tab-name">Profile</p>
+          <button type="button" class="pj-zoom-btn" aria-label="Enlarge employee profile screen">
+            <img src="../assets/projects/hr/03-profile-main.webp" alt="Employee profile screen with personal details, contact information, and civil service position fields" width="1920" height="2369">
+          </button>
+        </div>
+        <div class="pj-tab-panel" role="tabpanel" id="panel-royal" aria-labelledby="tab-royal" aria-hidden="true">
+          <p class="pj-tab-name">Royal decorations</p>
+          <button type="button" class="pj-zoom-btn" aria-label="Enlarge Royal decorations tab">
+            <img src="../assets/projects/hr/04-profile-royal-decorations.webp" alt="Employee profile Royal decorations tab listing awarded royal decoration insignia by year received" width="1920" height="1286">
+          </button>
+        </div>
+        <div class="pj-tab-panel" role="tabpanel" id="panel-docs" aria-labelledby="tab-docs" aria-hidden="true">
+          <p class="pj-tab-name">Important documents</p>
+          <button type="button" class="pj-zoom-btn" aria-label="Enlarge Important documents tab">
+            <img src="../assets/projects/hr/05-profile-documents.webp" alt="Employee profile Important documents tab listing ID card and driving license records and uploaded document files" width="1920" height="1286">
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pj-section-heading" style="margin-top: calc(var(--pj-gap) * 2);">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">3</span>
+      <h3 class="anim-rise">Rules-based configuration</h3>
+    </div>
+    <p class="pj-prose anim-rise" style="--delay:120ms;">Welfare and leave eligibility depend on rules. Admins set them as rules in the system, and the settings stay easy to manage.</p>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="pj-col pj-section">
+    <h2 class="anim-rise">Solution</h2>
+    <p class="pj-prose anim-rise" style="--delay:120ms;">The main screens of the system.</p>
+
+    <figure class="pj-scene">
+      <h3 class="pj-scene-title anim-rise">Dashboard</h3>
+      <div class="pj-scene-media">
+        <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge HR dashboard overview screen">
+          <img src="../assets/projects/hr/02-dashboard.webp" alt="HR dashboard overview screen showing total employee count, gender split, leave and late arrivals, account status, and employee category breakdown in donut charts" width="1920" height="1174">
+        </button>
+      </div>
+      <figcaption>Overview with summary numbers, charts, filters, and a date picker.</figcaption>
+    </figure>
+
+    <figure class="pj-scene">
+      <h3 class="pj-scene-title anim-rise">Employee report</h3>
+      <div class="pj-scene-media">
+        <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge employee table report screen">
+          <img src="../assets/projects/hr/06-employee-report.webp" alt="Employee table listing multiple staff members with ID numbers, department, position, and work status" width="1920" height="1361">
+        </button>
+      </div>
+      <figcaption>Employee data in a table view.</figcaption>
+    </figure>
+
+    <figure class="pj-scene">
+      <h3 class="pj-scene-title anim-rise">Evaluation detail</h3>
+      <div class="pj-scene-media">
+        <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge performance evaluation detail screen">
+          <img src="../assets/projects/hr/07-evaluation.webp" alt="Performance evaluation detail screen showing evaluator and evaluee with scored competency tables and an overall rating" width="1920" height="2000">
+        </button>
+      </div>
+      <figcaption>The detail of an employee evaluation.</figcaption>
+    </figure>
+  </section>
+
+  <!-- RESULTS / REFLECTION -->
+  <section class="pj-col pj-section">
+    <div class="pj-headed-grid">
+      <div class="pj-headed-item anim-rise">
+        <h2>Results</h2>
+        <div class="pj-card">
+          <div class="pj-card-body">
+            <p>The system is complete and in use at a Subdistrict Administrative Organization.</p>
+          </div>
+        </div>
+      </div>
+      <div class="pj-headed-item anim-rise" style="--delay:120ms;">
+        <h2>Reflection</h2>
+        <div class="pj-card">
+          <div class="pj-card-body">
+            <p>Designing for government workflows means understanding the rules, not just making the UI look better. When it works, the interface disappears behind the rules.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER — same markup/classes/animation as the homepage/smart-tax footer -->
+<footer class="footer pj-footer">
+  <div class="wave-top">
+    <img src="../assets/waves/wave-pink-footer.png" alt="">
+  </div>
+  <div class="footer-inner">
+    <h2 class="footer-title"><span class="anim-rise" style="--delay:225ms;">Thanks</span> <span class="anim-rise" style="--delay:375ms;">for</span> <span class="anim-rise" style="--delay:525ms;">reading</span></h2>
+
+    <nav class="pj-footer-nav anim-rise" style="--delay:650ms;">
+      <a class="pj-btn" href="../index.html#projects">← Back to main page</a>
+      <a class="pj-btn" href="../index.html#projects">Next project →</a>
+    </nav>
+
+    <div class="footer-contact anim-rise" style="--delay:750ms;">
+      <a class="footer-link" href="mailto:Kranrawee.kt@gmail.com"><span>Kranrawee.kt@gmail.com</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="tel:0616942233"><span>061 694 2233</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="https://drive.google.com/uc?export=download&id=1JALiw4dbGJJrroEloQzsT8p9B2-5gzX2" aria-label="ดาวน์โหลด Resume (PDF)"><span>My Resume</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="https://linkedin.com/in/ktpraew" target="_blank" rel="noopener"><span>linkedin.com/in/ktpraew</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<div class="pj-lightbox" id="pj-lightbox" hidden>
+  <div class="pj-lightbox-backdrop" data-pj-lightbox-close></div>
+  <div class="pj-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <button type="button" class="pj-lightbox-close" data-pj-lightbox-close aria-label="Close">&times;</button>
+    <img class="pj-lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script src="../js/motion.js"></script>
+<script src="../js/lightbox.js"></script>
+<script>
+(function () {
+  var M = window.PJMotion;
+  var reduceMotion = M.reduceMotion;
+  var qs = M.qs, qsa = M.qsa, reveal = M.reveal, revealHandwrite = M.revealHandwrite, ms = M.ms;
+
+  /* ---------- tabs: works even under prefers-reduced-motion (it only
+     turns off the fade, not the switching), so it's wired outside the
+     reduceMotion early-return below ---------- */
+  (function setupTabs() {
+    var tabs = qsa('.pj-tabs');
+    tabs.forEach(function (wrap) {
+      var tabList = qs('.pj-tablist', wrap);
+      var tabEls = qsa('.pj-tab', wrap);
+      var panels = qsa('.pj-tab-panel', wrap);
+      if (!tabList || !tabEls.length) return;
+
+      function activate(index, moveFocus) {
+        tabEls.forEach(function (t, i) {
+          var selected = i === index;
+          t.setAttribute('aria-selected', selected ? 'true' : 'false');
+          t.tabIndex = selected ? 0 : -1;
+        });
+        panels.forEach(function (p, i) {
+          var active = i === index;
+          p.classList.toggle('is-active', active);
+          if (active) { p.removeAttribute('aria-hidden'); }
+          else { p.setAttribute('aria-hidden', 'true'); }
+          qsa('.pj-zoom-btn', p).forEach(function (btn) { btn.tabIndex = active ? 0 : -1; });
+        });
+        if (moveFocus) tabEls[index].focus();
+      }
+
+      tabEls.forEach(function (tab, i) {
+        tab.addEventListener('click', function () { activate(i, false); });
+        tab.addEventListener('keydown', function (e) {
+          var last = tabEls.length - 1;
+          if (e.key === 'ArrowRight') { e.preventDefault(); activate(i === last ? 0 : i + 1, true); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); activate(i === 0 ? last : i - 1, true); }
+          else if (e.key === 'Home') { e.preventDefault(); activate(0, true); }
+          else if (e.key === 'End') { e.preventDefault(); activate(last, true); }
+        });
+      });
+
+      /* init: hide all but the first panel's zoom buttons */
+      panels.forEach(function (p, i) {
+        qsa('.pj-zoom-btn', p).forEach(function (btn) { btn.tabIndex = i === 0 ? 0 : -1; });
+      });
+    });
+  })();
+
+  if (reduceMotion) return; /* everything else shows instantly via CSS; no observers/timers needed */
+
+  /* ---------- hero: plays immediately on load ---------- */
+  function runHero() {
+    reveal(qs('.pj-title'));
+    setTimeout(function () { reveal(qs('.pj-hero-body .pj-scene-media .anim-rise')); }, ms(120));
+  }
+  requestAnimationFrame(function () { requestAnimationFrame(runHero); });
+
+  /* ---------- scroll-triggered reveals ---------- */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        reveal(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  qsa('.pj-meta-item').forEach(function (el) { io.observe(el); });
+  qsa('.pj-headed-item').forEach(function (el) { io.observe(el); });
+  qsa('.pj-section > h2.anim-rise').forEach(function (el) { io.observe(el); });
+  qsa('.pj-section-heading h3').forEach(function (el) { io.observe(el); });
+  qsa('.pj-section > p.anim-rise').forEach(function (el) { io.observe(el); });
+  qsa('.pj-band .anim-rise').forEach(function (el) { io.observe(el); });
+  qsa('.pj-tabs').forEach(function (el) { io.observe(el); });
+  qsa('.pj-scene-title').forEach(function (el) { io.observe(el); });
+  qsa('.pj-scene-media > .pj-zoom-btn').forEach(function (el) { io.observe(el); });
+
+  /* footer: same observer targets as the homepage footer */
+  ['.footer-tomato', '.footer-contact', '.pj-footer-nav'].forEach(function (sel) {
+    var el = qs(sel);
+    if (el) io.observe(el);
+  });
+  qsa('.footer-title .anim-rise').forEach(function (span) { io.observe(span); });
+
+  /* numbered section headings: the handwrite number clips itself via
+     clip-path, so observe the (unclipped) wrapper instead, same fix
+     as the homepage heading-pair reveal */
+  qsa('.pj-section-heading').forEach(function (wrap) {
+    var ioHeading = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          revealHandwrite(qs('.pj-section-num', wrap));
+          reveal(qs('h3', wrap));
+          ioHeading.unobserve(wrap);
+        }
+      });
+    }, { threshold: 0.15 });
+    ioHeading.observe(wrap);
+  });
+})();
+</script>
+
+</body>
+</html>

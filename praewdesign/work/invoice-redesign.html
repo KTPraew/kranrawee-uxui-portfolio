@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice Management Redesign — Praew Design</title>
+    <link rel="stylesheet" href="../assets/css/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="../index.html" class="navbar__brand">&larr; Praew Design</a>
+    </nav>
+
+    <main>
+      <!-- Header -->
+      <header class="case-header">
+        <p class="case-header__eyebrow">Case Study</p>
+        <h1 class="case-header__title">Invoice Management Redesign</h1>
+        <p class="case-header__tagline">
+          Redesigning an internal invoice system without breaking the
+          workflows people already knew.
+        </p>
+        <dl class="case-header__meta">
+          <div class="case-header__meta-item">
+            <dt>Role</dt>
+            <dd>UX/UI Designer</dd>
+          </div>
+          <div class="case-header__meta-item">
+            <dt>Timeline</dt>
+            <dd>~1 month of active work, spread across 3-4 months</dd>
+          </div>
+          <div class="case-header__meta-item">
+            <dt>Year</dt>
+            <dd>2025</dd>
+          </div>
+          <div class="case-header__meta-item">
+            <dt>Tools</dt>
+            <dd>
+              <ul class="tag-list">
+                <li class="tag">Figma</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      </header>
+
+      <!-- Problem -->
+      <section class="case-section" id="problem">
+        <h2 class="case-section__heading">Problem</h2>
+        <p class="case-section__intro">
+          The legacy invoice system was cluttered and slow to work with. The
+          back-office team needed something that felt modern, but not so
+          different that they'd have to relearn their day-to-day work.
+        </p>
+        <figure class="legacy-screenshot">
+          <div class="image-grid__media" aria-hidden="true"></div>
+          <figcaption class="image-grid__caption">
+            [Screenshot ของหน้าจอ/ระบบเดิมก่อนรีดีไซน์]
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- Approach -->
+      <section class="case-section" id="approach">
+        <h2 class="case-section__heading">Approach</h2>
+        <ul class="principle-list">
+          <li class="principle-list__item">
+            I removed functions nobody used to cut the clutter, instead of
+            adding more.
+          </li>
+          <li class="principle-list__item">
+            I reorganized the information architecture so related data lived
+            together and was easier to scan.
+          </li>
+          <li class="principle-list__item">
+            I kept every change close to the workflows the team already
+            knew, so adoption wouldn't be a fight.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Before / After -->
+      <section class="case-section" id="before-after">
+        <h2 class="case-section__heading">Before / After</h2>
+        <div class="before-after-list">
+          <div class="before-after">
+            <h3 class="before-after__title">Supervisor Dashboard</h3>
+            <div class="before-after__images">
+              <figure class="before-after__panel">
+                <div class="before-after__media" aria-hidden="true"></div>
+                <figcaption class="before-after__caption">Before</figcaption>
+              </figure>
+              <figure class="before-after__panel">
+                <div class="before-after__media" aria-hidden="true"></div>
+                <figcaption class="before-after__caption">After</figcaption>
+              </figure>
+            </div>
+            <p class="before-after__note">
+              Before, tasks were scattered across separate menus with no
+              single view. After, I added a supervisor dashboard that
+              connects those menus together, with indicators showing what
+              the team is working on.
+            </p>
+          </div>
+          <div class="before-after">
+            <h3 class="before-after__title">Confirmation Modals</h3>
+            <div class="before-after__images">
+              <figure class="before-after__panel">
+                <div class="before-after__media" aria-hidden="true"></div>
+                <figcaption class="before-after__caption">Before</figcaption>
+              </figure>
+              <figure class="before-after__panel">
+                <div class="before-after__media" aria-hidden="true"></div>
+                <figcaption class="before-after__caption">After</figcaption>
+              </figure>
+            </div>
+            <p class="before-after__note">
+              Before, critical actions like deleting or submitting an
+              invoice happened with one click, no way back. After, I added
+              confirmation modals for those actions to prevent costly
+              mistakes.
+            </p>
+          </div>
+          <div class="before-after">
+            <h3 class="before-after__title">Microcopy</h3>
+            <div class="before-after__images">
+              <figure class="before-after__panel">
+                <div class="before-after__media" aria-hidden="true"></div>
+                <figcaption class="before-after__caption">Before</figcaption>
+              </figure>
+              <figure class="before-after__panel">
+                <div class="before-after__media" aria-hidden="true"></div>
+                <figcaption class="before-after__caption">After</figcaption>
+              </figure>
+            </div>
+            <p class="before-after__note">
+              Before, labels and instructions used internal jargon that
+              didn't match how the team actually talked about their work.
+              After, I rewrote the microcopy to match their real vocabulary.
+            </p>
+          </div>
+          <div class="before-after">
+            <h3 class="before-after__title">Suppliers &amp; Units</h3>
+            <div class="before-after__images">
+              <figure class="before-after__panel">
+                <div class="before-after__media" aria-hidden="true"></div>
+                <figcaption class="before-after__caption">Before</figcaption>
+              </figure>
+              <figure class="before-after__panel">
+                <div class="before-after__media" aria-hidden="true"></div>
+                <figcaption class="before-after__caption">After</figcaption>
+              </figure>
+            </div>
+            <p class="before-after__note">
+              Before, supplier and unit data lived in separate, inconsistent
+              layouts. After, I standardized both into the same component
+              pattern, so switching between them felt familiar.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reflection -->
+      <section class="case-section" id="reflection">
+        <h2 class="case-section__heading">Reflection</h2>
+        <p>
+          A few things stuck with me from this project. Defining scope early
+          mattered more than I expected, it's easy for a redesign to quietly
+          grow into a rebuild. Working solo pushed me to adapt fast without
+          a team to lean on. Redesigning something people already knew
+          taught me to respect their comfort zone, not just chase what
+          looked better on paper. Working closely with developers also
+          meant simplifying components with implementation in mind, not
+          just visual polish. And on timeline, this project also taught me
+          to set expectations early with stakeholders. What should have
+          taken a month stretched to three or four, mostly waiting on
+          requirements and reviews. Next time, I'd build that buffer into
+          the plan from day one instead of discovering it along the way.
+        </p>
+      </section>
+    </main>
+
+    <!-- Related work -->
+    <footer class="related-work">
+      <h2 class="related-work__heading">More work</h2>
+      <ul class="related-work__list">
+        <li>
+          <a class="related-work__link" href="smart-payment.html"
+            >Smart Payment</a
+          >
+        </li>
+        <li>
+          <a class="related-work__link" href="smart-tax.html"
+            >Smart Tax Platform</a
+          >
+        </li>
+        <li>
+          <a class="related-work__link" href="speedy-doc.html">Speedy Doc</a>
+        </li>
+        <li>
+          <a class="related-work__link" href="c-hat-crm.html">C-HAT CRM</a>
+        </li>
+      </ul>
+    </footer>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Praew. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

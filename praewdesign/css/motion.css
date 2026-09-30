@@ -1,0 +1,120 @@
+/* ============================================
+   MOTION — entrance-animation system, shared by
+   every page. Play-once, JS-driven (gated behind
+   html.js so no-JS shows everything immediately).
+   Loaded after components.css.
+   ============================================ */
+
+.js .anim-rise {
+  opacity: 0;
+  transform: translateY(var(--dist));
+  transition: opacity var(--dur) var(--ease-smooth), transform var(--dur) var(--ease-smooth);
+  transition-delay: calc(var(--delay, 0ms) * var(--mobile-scale));
+}
+.js .anim-rise.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js .anim-pop {
+  --pop-scale: 0.85;
+  --pop-y: 0px;
+  --pop-rotate: -4deg;
+  opacity: 0;
+  transform: scale(var(--pop-scale)) translateY(var(--pop-y)) rotate(var(--pop-rotate));
+  transition: opacity var(--pop-dur) var(--ease-pop), transform var(--pop-dur) var(--ease-pop);
+  transition-delay: calc(var(--delay, 0ms) * var(--mobile-scale));
+}
+.js .anim-pop.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0) rotate(0deg);
+}
+
+.js .anim-handwrite {
+  clip-path: inset(-30% 100% -30% -30%);
+  transition: clip-path var(--handwrite-dur) var(--ease-smooth);
+  transition-delay: calc(var(--delay, 0ms) * var(--mobile-scale));
+}
+.js .anim-handwrite.is-visible {
+  clip-path: inset(-30% -30% -30% -30%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-rise,
+  .anim-pop,
+  .anim-handwrite {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+}
+
+/* ---- tilt-bounce: a wrapper settles into a fixed 5deg rotation with a
+   spring overshoot (e.g. a tilted label dropping into place). The
+   resting rotation is unconditional layout (applies with or without JS),
+   not decoration — only the opacity/overshoot needs JS at all ---- */
+.anim-tilt-bounce {
+  transform: rotate(5deg);
+  transform-origin: 100% 100%;
+}
+.js .anim-tilt-bounce {
+  opacity: 0;
+}
+.js .anim-tilt-bounce.is-visible {
+  animation: anim-tilt-bounce 1100ms var(--ease-smooth) calc(var(--delay, 0ms) * var(--mobile-scale)) both;
+}
+@keyframes anim-tilt-bounce {
+  0%   { opacity: 0; transform: scale(0.7) rotate(-14deg); }
+  18%  { opacity: 1; transform: scale(1.06) rotate(-14deg); }
+  40%  { transform: scale(1.03) rotate(12deg); }
+  58%  { transform: scale(1) rotate(1deg); }
+  74%  { transform: rotate(8deg); }
+  88%  { transform: rotate(4deg); }
+  100% { opacity: 1; transform: scale(1) rotate(5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-tilt-bounce {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: rotate(5deg) !important;
+  }
+}
+
+/* ---- typing effect (anim-type) ---- */
+.anim-type-wrap {
+  display: inline-block;
+}
+.anim-type-spacer {
+  visibility: hidden;
+}
+.anim-type-visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: pre;
+}
+.anim-type-cursor {
+  display: inline-block;
+  width: 1ch;
+  margin-left: 1px;
+  background: currentColor;
+  opacity: 0;
+  vertical-align: baseline;
+  transform: translateY(0.1em);
+}
+.anim-type-cursor.typing {
+  opacity: 1;
+}
+.anim-type-cursor.done {
+  animation: cursor-blink-fade 1.8s forwards;
+}
+@keyframes cursor-blink-fade {
+  0%   { opacity: 1; }
+  10%  { opacity: 0; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0; }
+  40%  { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 0; }
+}

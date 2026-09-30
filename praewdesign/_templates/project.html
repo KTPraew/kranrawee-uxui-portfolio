@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>[PROJECT TITLE] | Praew Kranrawee — UX/UI Designer</title>
+<!-- favicon -->
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/favicon/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../assets/favicon/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<!-- /favicon -->
+<meta name="description" content="[ONE-SENTENCE PROJECT DESCRIPTION FOR SEARCH/SOCIAL PREVIEWS]">
+<meta property="og:image" content="assets/projects/[PROJECT SLUG]/01-cover.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/motion.css">
+<link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+<main>
+
+  <!-- HERO -->
+  <section class="pj-hero-cover">
+    <a class="pj-back-top" href="../index.html#projects">← Back to main page</a>
+    <div class="pj-hero-cover-crop">
+      <img class="pj-cover anim-rise" style="--delay:240ms;" src="../assets/projects/[PROJECT SLUG]/01-cover.webp" alt="[DESCRIBE WHAT THE COVER PHOTO ACTUALLY SHOWS]" width="[W]" height="[H]">
+      <!-- If 01-cover.webp is missing, replace the <img> above with:
+           <div class="pj-img-fallback pj-cover anim-rise" style="--delay:240ms;">01-cover.webp (missing)</div>
+           Never substitute a different image. -->
+    </div>
+  </section>
+
+  <section class="pj-col pj-hero-body">
+    <h1 class="pj-title anim-rise">[PROJECT TITLE]</h1>
+    <p class="pj-lead pj-prose">[LEAD — one sentence: what this product is and who it's for]</p>
+    <p class="pj-body-text pj-prose">[BODY — 2-3 sentences: what problem it solves, key mechanism]</p>
+    <dl class="pj-meta">
+      <div class="pj-meta-item anim-rise">
+        <dt>Role</dt>
+        <dd>[e.g. UX/UI Designer]</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Tool</dt>
+        <dd>[e.g. Figma]</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Project time</dt>
+        <dd>[e.g. 6 months (2025)]</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- GOALS -->
+  <section class="pj-col pj-section">
+    <h2>Goals</h2>
+    <div class="pj-goals-layout">
+      <ul class="pj-goals">
+        <li class="anim-rise">[GOAL 1]</li>
+        <li class="anim-rise">[GOAL 2]</li>
+        <li class="anim-rise">[GOAL 3]</li>
+      </ul>
+      <!-- Second image column is optional — only use it if there's a
+           product shot that deserves to float here (see DESIGN.md §4,
+           .pj-goals-layout). Delete the <button> below if not needed
+           and let .pj-goals span the full section width instead. -->
+      <button type="button" class="pj-zoom-btn anim-pop" style="--delay:200ms; width:auto;" aria-label="Enlarge [WHAT THE IMAGE SHOWS]">
+        <img class="pj-goals-image" src="../assets/projects/[PROJECT SLUG]/[GOALS IMAGE].webp" alt="[DESCRIBE WHAT THE IMAGE ACTUALLY SHOWS]" width="[W]" height="[H]">
+      </button>
+    </div>
+  </section>
+
+  <!-- DESIGN PROCESS — OPTIONAL: only include this dark band if the
+       project actually has a 4-step (Empathize/Define/Ideate/Design)
+       process to walk through. Delete this whole <section> otherwise;
+       nothing else on the page depends on it. -->
+  <section class="pj-band pj-section">
+    <div class="pj-col">
+      <h2 class="anim-rise">Design Process</h2>
+      <p class="pj-prose anim-rise" style="--delay:120ms;">[INTRO — 2-3 sentences on your research/design approach]</p>
+      <nav class="pj-stepper anim-rise" style="--delay:240ms;" aria-label="Design process steps">
+        <a href="#empathize">Empathize</a>
+        <span class="pj-stepper-line" aria-hidden="true"></span>
+        <a href="#define">Define</a>
+        <span class="pj-stepper-line" aria-hidden="true"></span>
+        <a href="#ideate">Ideate</a>
+        <span class="pj-stepper-line" aria-hidden="true"></span>
+        <a href="#design">Design</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- 1 EMPATHIZE — pairs with the stepper above; keep the id/number in
+       sync with whichever 4 steps you actually use, or delete this
+       section (and its stepper link) if there was no empathize phase. -->
+  <section class="pj-col pj-section" id="empathize">
+    <div class="pj-section-heading">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">1</span>
+      <h2 class="anim-rise" style="--delay:120ms;">Empathize</h2>
+    </div>
+    <div class="pj-card-simple">
+      <p class="pj-prose">[WHAT YOU DID TO UNDERSTAND THE PROBLEM/USERS]</p>
+      <p class="pj-prose">[WHAT YOU LEARNED FROM IT]</p>
+    </div>
+  </section>
+
+  <!-- 2 DEFINE -->
+  <section class="pj-col pj-section" id="define">
+    <div class="pj-section-heading">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">2</span>
+      <h2 class="anim-rise" style="--delay:120ms;">Define</h2>
+    </div>
+    <div class="pj-cards">
+      <div class="pj-card anim-rise">
+        <div class="pj-card-body">
+          <h3>Problems</h3>
+          <ul>
+            <li>[PROBLEM 1]</li>
+            <li>[PROBLEM 2]</li>
+            <li>[PROBLEM 3]</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pj-card anim-rise">
+        <div class="pj-card-body">
+          <h3>Insights</h3>
+          <ul>
+            <li>[INSIGHT 1]</li>
+            <li>[INSIGHT 2]</li>
+            <li>[INSIGHT 3]</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pj-card anim-rise">
+        <div class="pj-card-body">
+          <h3>Why it matters</h3>
+          <ul>
+            <li>[WHY 1]</li>
+            <li>[WHY 2]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 IDEATE -->
+  <section class="pj-col pj-section" id="ideate">
+    <div class="pj-section-heading">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">3</span>
+      <h2 class="anim-rise" style="--delay:120ms;">Ideate</h2>
+    </div>
+    <ul class="pj-ideate">
+      <li>[IDEA 1]</li>
+      <li>[IDEA 2]</li>
+      <li>[IDEA 3]</li>
+      <li>[IDEA 4]</li>
+    </ul>
+
+    <!-- User Flow diagram — OPTIONAL: delete this <figure> if there's
+         no flow diagram for this project. -->
+    <figure class="pj-gallery-item pj-user-flow-card">
+      <button type="button" class="pj-zoom-btn" aria-label="Enlarge user flow diagram">
+        <span class="pj-gallery-media pj-user-flow-media">
+          <img src="../assets/projects/[PROJECT SLUG]/[USER FLOW IMAGE].webp" alt="[DESCRIBE THE FLOW DIAGRAM]" width="[W]" height="[H]" loading="lazy">
+        </span>
+      </button>
+      <figcaption>
+        <h3 class="pj-gallery-name">User Flow</h3>
+        <span class="pj-gallery-desc">[CAPTION, e.g. which flow this covers]</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- 4 DESIGN — gallery: repeat the <figure> block for each screen.
+       The first item can be a "design system" overview card like this
+       one; delete it if not applicable. Every image sits in the same
+       .pj-gallery-media well (16:10, object-fit:contain) except a
+       "Parcel tools"-style multi-image row, shown as the last item
+       below — copy that pattern only when you truly need 3 images
+       side by side with no lightbox buttons. -->
+  <section class="pj-col pj-section" id="design">
+    <div class="pj-section-heading">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">4</span>
+      <h2 class="anim-rise" style="--delay:120ms;">Design</h2>
+    </div>
+
+    <div class="pj-gallery">
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge [SCREEN NAME]">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/[PROJECT SLUG]/[IMAGE].webp" alt="[DESCRIBE THE SCREEN]" width="[W]" height="[H]" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">[SCREEN NAME]</span>
+          <span class="pj-gallery-desc">[ONE-LINE DESCRIPTION — optional, may be omitted]</span>
+        </figcaption>
+      </figure>
+
+      <!-- copy the <figure> block above for every additional screen -->
+
+      <!-- Multi-image row (e.g. "Parcel tools"): full width, name +
+           description ABOVE the images, no zoom buttons. Delete this
+           block if you don't need a 3-across image row. -->
+      <figure class="pj-gallery-item pj-gallery-item--multi pj-gallery-item--plain anim-rise">
+        <figcaption>
+          <span class="pj-gallery-name">[GROUP NAME]</span>
+          <span class="pj-gallery-desc">[WHAT THESE 3 IMAGES SHOW TOGETHER]</span>
+        </figcaption>
+        <div class="pj-gallery-multi">
+          <img src="../assets/projects/[PROJECT SLUG]/[IMAGE A].webp" alt="[DESCRIBE A]" width="[W]" height="[H]" loading="lazy">
+          <img src="../assets/projects/[PROJECT SLUG]/[IMAGE B].webp" alt="[DESCRIBE B]" width="[W]" height="[H]" loading="lazy">
+          <img src="../assets/projects/[PROJECT SLUG]/[IMAGE C].webp" alt="[DESCRIBE C]" width="[W]" height="[H]" loading="lazy">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WHAT I LEARNED -->
+  <section class="pj-col pj-section pj-section--center">
+    <h2>What I learned</h2>
+    <ul class="pj-learned">
+      <li>[LEARNING 1]</li>
+      <li>[LEARNING 2]</li>
+      <li>[LEARNING 3]</li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- FOOTER — same markup/classes/animation as the homepage footer
+     (see DESIGN.md §4). Only real differences allowed: no tomato,
+     plus this project's nav buttons. Do not restyle it per project. -->
+<footer class="footer pj-footer">
+  <div class="wave-top">
+    <img src="../assets/waves/wave-pink-footer.png" alt="">
+  </div>
+  <div class="footer-inner">
+    <h2 class="footer-title"><span class="anim-rise" style="--delay:225ms;">Thanks</span> <span class="anim-rise" style="--delay:375ms;">for</span> <span class="anim-rise" style="--delay:525ms;">reading</span></h2>
+
+    <nav class="pj-footer-nav anim-rise" style="--delay:650ms;">
+      <a class="pj-btn" href="../index.html#projects">← Back to main page</a>
+      <a class="pj-btn" href="../projects/[NEXT PROJECT SLUG].html">Next project →</a>
+    </nav>
+
+    <div class="footer-contact anim-rise" style="--delay:750ms;">
+      <a class="footer-link" href="mailto:Kranrawee.kt@gmail.com"><span>Kranrawee.kt@gmail.com</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="tel:0616942233"><span>061 694 2233</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="https://drive.google.com/uc?export=download&id=1JALiw4dbGJJrroEloQzsT8p9B2-5gzX2" aria-label="ดาวน์โหลด Resume (PDF)"><span>My Resume</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="https://linkedin.com/in/ktpraew" target="_blank" rel="noopener"><span>linkedin.com/in/ktpraew</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<div class="pj-lightbox" id="pj-lightbox" hidden>
+  <div class="pj-lightbox-backdrop" data-pj-lightbox-close></div>
+  <div class="pj-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <button type="button" class="pj-lightbox-close" data-pj-lightbox-close aria-label="Close">&times;</button>
+    <img class="pj-lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script src="../js/motion.js"></script>
+<script src="../js/lightbox.js"></script>
+<script>
+(function () {
+  var M = window.PJMotion;
+  var reduceMotion = M.reduceMotion;
+  var qs = M.qs, qsa = M.qsa, reveal = M.reveal, revealHandwrite = M.revealHandwrite, ms = M.ms;
+
+  if (reduceMotion) return; /* everything else shows instantly via CSS; no observers/timers needed */
+
+  /* ---------- hero: plays immediately on load ---------- */
+  function runHero() {
+    reveal(qs('.pj-title'));
+    setTimeout(function () { reveal(qs('.pj-cover')); }, ms(240));
+  }
+  requestAnimationFrame(function () { requestAnimationFrame(runHero); });
+
+  /* ---------- scroll-triggered reveals ---------- */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        reveal(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  qsa('.pj-band .anim-rise').forEach(function (el) { io.observe(el); });
+  qsa('.pj-meta-item').forEach(function (el) { io.observe(el); });
+  qsa('.pj-goals li').forEach(function (el) { io.observe(el); });
+  qsa('.pj-goals-layout .anim-pop').forEach(function (el) { io.observe(el); });
+  qsa('.pj-card').forEach(function (el) { io.observe(el); });
+  qsa('.pj-ideate li').forEach(function (el) { io.observe(el); });
+  qsa('.pj-gallery-item').forEach(function (el) { io.observe(el); });
+
+  /* footer: same observer targets as the homepage footer */
+  ['.footer-tomato', '.footer-contact', '.pj-footer-nav'].forEach(function (sel) {
+    var el = qs(sel);
+    if (el) io.observe(el);
+  });
+  qsa('.footer-title .anim-rise').forEach(function (span) { io.observe(span); });
+
+  /* numbered section headings: the handwrite number clips itself via
+     clip-path, so observe the (unclipped) wrapper instead, same fix
+     as the homepage heading-pair reveal */
+  qsa('.pj-section-heading').forEach(function (wrap) {
+    var ioHeading = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          revealHandwrite(qs('.pj-section-num', wrap));
+          reveal(qs('h2', wrap));
+          ioHeading.unobserve(wrap);
+        }
+      });
+    }, { threshold: 0.15 });
+    ioHeading.observe(wrap);
+  });
+})();
+</script>
+
+</body>
+</html>

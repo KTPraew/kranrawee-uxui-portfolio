@@ -1,0 +1,39 @@
+/* ============================================
+   THEMES — per-project overrides of the dark-band
+   tokens (--pj-dark-*). Each project page declares
+   its own theme class on <body> so one project's
+   palette never affects another's. Loaded last, by
+   every page, after project.css.
+
+   Components (.pj-band, ...) must only ever reference
+   the --pj-dark-* variables, never a theme class name
+   directly.
+   ============================================ */
+
+.theme-smart-tax {
+  --pj-dark-base: #1E4E3E;
+  --pj-dark-edge: #0F241B;
+  --pj-dark-glow: #438067;
+  --pj-dark-title: #DDF5EE;
+  --pj-dark-text: #FFFFFF;
+  --pj-dark-accent: #7FD3C0;
+}
+
+.theme-speedy-doc {
+  --pj-dark-base: #2252AA;
+  --pj-dark-edge: #10265A;
+  --pj-dark-glow: #3A6AC4;
+  --pj-dark-title: #E3ECFF;
+  --pj-dark-text: #FFFFFF;
+  --pj-dark-accent: #9DBDF5;
+}
+
+.theme-hr {
+  --pj-dark-base: #00614C;
+  --pj-dark-edge: #00382C;
+  --pj-dark-glow: #00805F;
+  --pj-dark-title: #E0FBF3;
+  --pj-dark-text: #FFFFFF;
+  --pj-dark-accent: #6FDCC0;
+  --pj-marker: #00A07B;
+}

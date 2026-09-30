@@ -1,0 +1,44 @@
+:root {
+  /* สี: พื้นหลังหลักและพื้นหลังรอง */
+  --bg-base: #fffdf9;
+  --bg-alt: #f7f3ee;
+
+  /* สี: ตัวอักษรหลักและตัวอักษรรอง (คำอธิบาย/ข้อความเสริม) */
+  --text-main: #2b2621;
+  --text-muted: #9a8f82;
+
+  /* สี: สีเน้น (ปุ่ม, ลิงก์, จุดโฟกัส) และสีเน้นเข้ม (hover/active) */
+  --accent: #f4c6d0;
+  --accent-deep: #d9678a;
+  --accent-blue: #afcbe0;
+  --accent-purple: #c9b8e0;
+
+  /* สี: เส้นขอบ (card, divider, input) */
+  --border: #e7dfd3;
+
+  /* ฟอนต์: หัวข้อ/พาดหัว และเนื้อหาทั่วไป */
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+
+  /* spacing scale: ระยะห่าง/padding/margin ตั้งแต่เล็กสุดถึงใหญ่สุด */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+
+  /* border-radius scale: ความโค้งมุมของ element ตั้งแต่เล็กสุดถึงใหญ่สุด */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* box-shadow: เงานุ่มสำหรับ card และ element ที่ลอยขึ้นมา */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* transition: ระยะเวลามาตรฐานสำหรับ animation/hover */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}

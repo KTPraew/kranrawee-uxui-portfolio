@@ -1,0 +1,193 @@
+/* case-study.css — styles for the case-study detail page template (work/*.html).
+   Loaded alongside styles.css, which already defines the shared tokens
+   (--bg-base, --text-main, etc.), .nav, .logo, .resume-btn, .split-row,
+   .eyebrow, .mascot, .floaty and .quote-band base — this file only adds
+   what's specific to the case-study layout. */
+
+.back-link { color: var(--text-muted); font-size: 13px; font-weight: 500; }
+.back-link:hover { color: var(--accent-deep); }
+
+/* pill in-page navigator */
+.pill-nav { display: flex; gap: 10px; flex-wrap: wrap; }
+.pill-nav a {
+  font-size: 12px; font-weight: 600; color: var(--text-main);
+  background: var(--bg-base); border: 1px solid var(--border);
+  border-radius: 999px; padding: 8px 16px;
+}
+.pill-nav a:hover { text-decoration: none; border-color: var(--accent-deep); color: var(--accent-deep); }
+
+/* header */
+.cs-header { position: relative; padding: 90px 80px 50px 80px; overflow: hidden; }
+.cs-header-mascot { position: absolute; top: 40px; right: 100px; width: 64px; height: auto; filter: drop-shadow(0 12px 20px rgba(43,38,33,0.12)); }
+.cs-header-eyebrow { padding-top: 14px; }
+.cs-title { font-family: var(--font-display); font-weight: 600; font-size: 52px; line-height: 1.1; margin: 0 0 14px 0; color: var(--text-main); }
+.cs-tagline { font-size: 16px; color: var(--text-muted); margin: 0; max-width: 520px; }
+
+/* metadata band */
+.cs-meta-band { background: rgba(175,203,224,0.16); padding: 28px 80px; }
+.cs-meta-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.cs-meta-value { font-size: 14px; margin-top: 6px; line-height: 1.5; }
+.cs-meta-tools { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.cs-tool-pill { font-size: 11px; font-weight: 600; color: var(--text-muted); background: var(--bg-base); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; }
+
+.cs-pillnav-row { padding: 22px 80px; border-bottom: 1px solid var(--border); }
+
+/* section rhythm */
+.cs-section { padding: 80px; }
+.cs-section-alt { background: var(--bg-alt); }
+.cs-section-tint { background: rgba(244,198,208,0.14); }
+.cs-section-label { padding-top: 4px; }
+
+.cs-body { font-size: 16px; line-height: 1.8; color: var(--text-main); max-width: 620px; margin: 0 0 40px 0; }
+.cs-body-muted { font-size: 15px; line-height: 1.8; color: var(--text-muted); margin: 0; text-align: justify; }
+
+/* oversized stat callout */
+.cs-stat-row { display: flex; gap: 64px; flex-wrap: wrap; }
+.stat-big { display: flex; flex-direction: column; }
+.stat-big .num { font-family: var(--font-display); font-weight: 600; font-size: 88px; line-height: 1; color: var(--accent-deep); letter-spacing: -0.02em; }
+.stat-big .cap { font-size: 13px; color: var(--text-muted); margin-top: 8px; max-width: 220px; }
+
+/* compact stat chip */
+.cs-research-grid { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+.stat-chip { display: flex; align-items: baseline; gap: 12px; padding: 18px 0; border-top: 1px solid var(--border); }
+.stat-chip .num { font-family: var(--font-display); font-weight: 600; font-size: 30px; color: var(--accent-deep); min-width: 76px; }
+.stat-chip .cap { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+/* numbered decision card */
+.cs-decision-list { display: flex; flex-direction: column; gap: 16px; max-width: 640px; }
+.decision-card { background: var(--bg-base); border: 1px solid var(--border); border-radius: 16px; padding: 28px; display: flex; gap: 20px; }
+.decision-num { font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--accent-deep); flex: none; width: 28px; }
+.decision-text { font-size: 14px; line-height: 1.75; color: var(--text-main); }
+
+/* device-frame placeholder */
+.cs-device-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.cs-testing-copy { max-width: 620px; margin-bottom: 32px; }
+.device-frame { border-radius: 14px; border: 1px solid var(--border); background: var(--bg-base); overflow: hidden; box-shadow: 0 12px 30px rgba(43,38,33,0.06); }
+.device-chrome { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--border); background: var(--bg-alt); }
+.device-chrome span { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+.device-body {
+  aspect-ratio: 16 / 10; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; background: repeating-linear-gradient(135deg, var(--bg-alt) 0px, var(--bg-alt) 10px, var(--bg-base) 10px, var(--bg-base) 20px);
+}
+.device-body svg { opacity: 0.35; }
+.device-label { font-size: 12px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.02em; }
+.device-caption { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 10px; }
+
+.cs-results-copy { max-width: 640px; }
+.quote-band {
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: 22px; line-height: 1.55; color: var(--text-main); max-width: 640px; margin-top: 28px;
+}
+.quote-band .mark { color: var(--accent-deep); }
+
+/* reflection */
+.cs-reflection { position: relative; padding: 70px 80px 90px 80px; background: var(--bg-alt); overflow: hidden; }
+.cs-reflection-mascot { position: absolute; bottom: 30px; right: 100px; width: 56px; height: auto; opacity: 0.9; }
+.cs-reflection-copy { max-width: 560px; }
+
+/* footer */
+.cs-footer { padding: 60px 80px 50px 80px; border-top: 1px solid var(--text-main); }
+.cs-more-work { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 500; }
+.cs-copyright { text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 50px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cs-header, .cs-meta-band, .cs-pillnav-row, .cs-section, .cs-reflection, .cs-footer { padding-left: 24px; padding-right: 24px; }
+  .cs-meta-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-research-grid, .cs-device-grid { grid-template-columns: 1fr; }
+  .cs-title { font-size: 34px; }
+  .stat-big .num { font-size: 56px; }
+  .cs-header-mascot, .cs-reflection-mascot { display: none; }
+}
+/* ============================================
+   DESIGN SYSTEM SECTION — sketch + color/type +
+   design-tokens screenshots, for the case study page.
+   Add this block to the end of assets/css/case-study.css
+   ============================================ */
+
+.cs-ds-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+.cs-ds-row:last-child {
+  margin-bottom: 0;
+}
+
+.cs-ds-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cs-ds-photo {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(43, 38, 33, 0.08);
+}
+.cs-ds-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cs-ds-caption {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 10px 0 0 0;
+}
+
+.cs-ds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.cs-ds-bare {
+  display: flex;
+  align-items: flex-start;
+}
+.cs-ds-bare img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.cs-ds-card {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-base);
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(43, 38, 33, 0.06);
+}
+.cs-ds-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cs-ds-card-chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+.cs-ds-card-chrome span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+@media (max-width: 900px) {
+  .cs-ds-row { grid-template-columns: 1fr; gap: 24px; }
+  .cs-ds-grid { grid-template-columns: 1fr; }
+  .cs-ds-photo { max-width: 100%; }
+  .cs-ds-bare img { width: 100%; height: auto; }
+}

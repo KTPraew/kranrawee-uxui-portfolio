@@ -1,0 +1,1065 @@
+/* ============================================
+   PROJECT — layout/components for /projects/*.html
+   pages only. Everything shared with the homepage
+   (tokens, reset, heading-pair, footer, wave dividers,
+   the .anim-* motion system) lives in tokens.css,
+   base.css, components.css and motion.css, loaded
+   before this file.
+   ============================================ */
+
+body {
+  color: #2c2c2c;
+  background: var(--pj-bg);
+}
+
+/* <figure> has a UA-default `margin: 1em 40px` that this template has
+   always rendered with (never explicitly reset); base.css's global
+   `* { margin: 0 }` would otherwise silently change every image-card's
+   spacing, so it's restored here explicitly. */
+.pj-gallery-item {
+  margin: 16px 40px;
+}
+/* full-width process cards (User journey map, User flow, Style guide):
+   outer edges flush with the container — the 40px inset above is
+   deliberately zeroed here so they line up with 2-col rows above them */
+.pj-gallery-item--full {
+  margin: var(--pj-gap) 0 0;
+}
+.pj-gallery-item--full .pj-gallery-media {
+  aspect-ratio: auto;
+  background: var(--pj-well);
+  padding: 16px;
+  border-radius: 12px;
+}
+.pj-gallery-item--full .pj-gallery-media img {
+  width: 100%;
+  height: auto;
+}
+
+/* per-position reveal delays */
+.pj-meta-item:nth-child(1) { --delay: 0ms; }
+.pj-meta-item:nth-child(2) { --delay: 120ms; }
+.pj-meta-item:nth-child(3) { --delay: 240ms; }
+
+.pj-goals li:nth-child(1) { --delay: 0ms; }
+.pj-goals li:nth-child(2) { --delay: 120ms; }
+.pj-goals li:nth-child(3) { --delay: 240ms; }
+
+.pj-card:nth-child(1) { --delay: 0ms; }
+.pj-card:nth-child(2) { --delay: 120ms; }
+.pj-card:nth-child(3) { --delay: 240ms; }
+
+.pj-ideate li:nth-child(1) { --delay: 0ms; }
+.pj-ideate li:nth-child(2) { --delay: 120ms; }
+.pj-ideate li:nth-child(3) { --delay: 240ms; }
+.pj-ideate li:nth-child(4) { --delay: 360ms; }
+
+.pj-gallery-item:nth-child(odd)  { --delay: 0ms; }
+.pj-gallery-item:nth-child(even) { --delay: 120ms; }
+.pj-gallery-item--multi { --delay: 0ms; }
+
+/* ---------- focus ---------- */
+a:focus-visible,
+.pj-stepper a:focus-visible,
+.pj-btn:focus-visible {
+  outline: 3px solid var(--teal-text);
+  outline-offset: 4px;
+}
+
+/* ---------- back button (top-left, capsule) ---------- */
+.pj-back-top {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 2px solid var(--teal-text);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--teal-text);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pj-back-top:hover,
+.pj-back-top:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(15, 138, 144, 0.25);
+}
+
+/* ---------- layout shells (only two widths on this template) ---------- */
+.pj-col {
+  max-width: var(--pj-container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.pj-prose {
+  max-width: var(--pj-text-max);
+}
+
+.pj-section {
+  margin-top: var(--pj-section-gap);
+}
+.pj-section:first-of-type { margin-top: 0; }
+
+/* ---------- hero (full-bleed cover-photo variant) ---------- */
+.pj-hero-cover {
+  position: relative;
+}
+.pj-hero-cover-crop {
+  position: relative;
+  width: 100%;
+  max-height: 480px;
+  overflow: hidden;
+}
+.pj-hero-cover-crop img,
+.pj-hero-cover-crop .pj-img-fallback {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.pj-hero-cover-crop .pj-img-fallback {
+  aspect-ratio: 3 / 1;
+  min-height: 220px;
+}
+
+.pj-hero-body { padding-top: 48px; }
+
+.pj-title {
+  font-family: var(--font-display);
+  color: var(--teal-text);
+  font-size: 72px;
+  line-height: 1.1;
+  margin: 0 0 var(--pj-title-gap);
+}
+@media (max-width: 560px) {
+  .pj-title { font-size: 48px; }
+}
+
+.pj-lead {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--teal-text);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+.pj-body-text {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #333;
+  margin: 0 0 32px;
+}
+
+/* ---------- meta ---------- */
+.pj-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--pj-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pj-meta-item {
+  text-align: center;
+}
+.pj-meta-item dt {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pj-pink-text);
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+.pj-meta-item dd {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--teal-text);
+}
+@media (max-width: 900px) {
+  .pj-meta { grid-template-columns: 1fr; }
+}
+
+/* 6-card meta grid (3x2): its own breakpoints, since the plain
+   3-card .pj-meta above collapses straight to 1 column at 900px */
+.pj-meta--6 { grid-template-columns: repeat(3, 1fr); }
+.pj-meta--6 .pj-meta-item:nth-child(3n+1) { --delay: 0ms; }
+.pj-meta--6 .pj-meta-item:nth-child(3n+2) { --delay: 120ms; }
+.pj-meta--6 .pj-meta-item:nth-child(3n+3) { --delay: 240ms; }
+@media (max-width: 900px) {
+  .pj-meta--6 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .pj-meta--6 { grid-template-columns: 1fr; }
+}
+
+/* ---------- section headings (all h2 share one size/position;
+   the 4 numbered ones add a script-font index before the text) ---------- */
+.pj-section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 var(--pj-title-gap);
+}
+.pj-section-num {
+  font-family: var(--font-script);
+  font-size: 40px;
+  color: var(--pj-pink-text);
+  line-height: 1;
+}
+.pj-section-heading h2 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--teal-text);
+  margin: 0;
+  line-height: 1.1;
+}
+.pj-section > h2:only-child,
+.pj-section > h2:first-child {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--teal-text);
+  margin: 0 0 var(--pj-title-gap);
+}
+@media (max-width: 768px) {
+  .pj-section-num,
+  .pj-section-heading h2,
+  .pj-section > h2 { font-size: 32px; }
+}
+
+.pj-section h3 { margin: 0; }
+.pj-section p { font-size: 17px; line-height: 1.7; margin: 0 0 16px; }
+
+/* ---------- one card look, used everywhere ---------- */
+.pj-meta-item,
+.pj-card,
+.pj-card-simple,
+.pj-goals li,
+.pj-ideate li,
+.pj-gallery-item,
+.pj-learned {
+  background: var(--pj-card-bg);
+  border: 1px solid var(--pj-card-border);
+  border-radius: var(--pj-card-radius);
+  box-shadow: var(--pj-card-shadow);
+  padding: var(--pj-card-pad);
+}
+
+.pj-card-simple p:last-child { margin-bottom: 0; }
+.pj-card-simple h3 {
+  margin: 24px 0 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: #1c1c1c;
+}
+.pj-card-simple h3:first-child { margin-top: 0; }
+.pj-card-simple ul { margin: 0; padding: 0; list-style: none; }
+
+/* shared bullet marker: a plain dot, same color, everywhere a list appears */
+.pj-goals li,
+.pj-ideate li,
+.pj-card ul li,
+.pj-card-simple ul li,
+.pj-learned li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.pj-goals li::before,
+.pj-ideate li::before,
+.pj-card ul li::before,
+.pj-card-simple ul li::before,
+.pj-learned li::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.55em;
+  border-radius: 50%;
+  background: var(--pj-marker);
+}
+
+/* ---------- goals: 2-col layout (cards left, 02-mobile.webp right) ---------- */
+.pj-goals-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 48px;
+  align-items: center;
+}
+.pj-goals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pj-gap);
+}
+.pj-goals-image {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+}
+@media (max-width: 900px) {
+  .pj-goals-layout { grid-template-columns: 1fr; }
+  .pj-goals-image { max-width: 300px; margin: 0 auto; }
+}
+
+/* ---------- design process stepper ---------- */
+.pj-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.pj-stepper a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 120px;
+  min-height: 44px;
+  padding: 12px 22px;
+  border: 2px solid var(--teal-text);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--teal-text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  white-space: nowrap;
+}
+.pj-stepper a:hover { transform: translateY(-2px); }
+.pj-stepper-line {
+  flex: 1;
+  min-width: 16px;
+  border-top: 2px dashed var(--teal-text);
+  margin: 0 8px;
+}
+@media (max-width: 560px) {
+  .pj-stepper { flex-direction: column; align-items: stretch; }
+  .pj-stepper a { flex: none; }
+  .pj-stepper-line { width: 2px; min-height: 16px; border-top: none; border-left: 2px dashed var(--teal-text); margin: 4px 0 4px 20px; }
+}
+
+/* ---------- Design Process: full-bleed dark band ---------- */
+.pj-band {
+  width: 100%;
+  background:
+    radial-gradient(ellipse 45% 75% at 50% 20%, var(--pj-dark-glow) 0%, transparent 100%),
+    linear-gradient(180deg, var(--pj-dark-edge) 0%, var(--pj-dark-base) 100%);
+  padding: 72px 0;
+}
+@media (max-width: 768px) {
+  .pj-band { padding: 48px 0; }
+}
+.pj-band h2 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--pj-dark-title);
+  margin: 0 0 var(--pj-title-gap);
+}
+.pj-band p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--pj-dark-text);
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .pj-band h2 { font-size: 32px; }
+}
+.pj-band .pj-band-role-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pj-dark-accent);
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.pj-band .pj-band-role-text {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--pj-dark-text);
+  max-width: var(--pj-text-max);
+  margin: 0 0 20px;
+}
+.pj-band .pj-stepper {
+  justify-content: center;
+  margin-top: 40px;
+}
+.pj-band .pj-stepper-line {
+  border-top-color: var(--pj-dark-accent);
+  max-width: 56px;
+}
+@media (max-width: 560px) {
+  .pj-band .pj-stepper-line { border-left-color: var(--pj-dark-accent); }
+}
+
+/* ---------- pj-band process with a method list under each step
+   (e.g. Double Diamond: capsule + list of methods per column) ---------- */
+.pj-method {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 64px;
+  align-items: start;
+  margin-top: 40px;
+}
+.pj-method-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+/* dashed connector: a pseudo-element of the column itself, inset 12px
+   from each capsule, vertically centered on the (48px-tall) capsule —
+   never a separate element, never absolute-from-container */
+.pj-method-col:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: calc(100% + 12px);
+  width: calc(64px - 24px);
+  border-top: 2px dashed var(--pj-dark-accent);
+}
+@media (max-width: 900px) {
+  .pj-method-col::after { display: none; }
+}
+.pj-band .pj-stepper a,
+.pj-band .pj-method-step {
+  background: #fff;
+  border: 2px solid var(--pj-dark-accent);
+  color: var(--pj-dark-edge);
+}
+.pj-band .pj-stepper a { padding: 12px 28px; }
+.pj-method-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease;
+}
+.pj-method-step:hover { transform: translateY(-2px); }
+.pj-band .pj-stepper a:focus-visible,
+.pj-method-step:focus-visible {
+  outline: 3px solid var(--pj-dark-title);
+  outline-offset: 4px;
+}
+.pj-method-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+.pj-method-list li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--pj-dark-text);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.pj-method-list li:last-child { margin-bottom: 0; }
+.pj-method-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pj-dark-accent);
+}
+@media (max-width: 900px) {
+  .pj-method { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .pj-method { grid-template-columns: 1fr; }
+}
+
+/* ---------- define: 3 equal-height cards (or 2, via .pj-cards--2) ---------- */
+.pj-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--pj-gap);
+  align-items: stretch;
+}
+.pj-cards--2 { grid-template-columns: 1fr 1fr; }
+.pj-card h3 {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: #1c1c1c;
+}
+.pj-card ul { margin: 0; padding: 0; list-style: none; }
+.pj-card ul li,
+.pj-card-simple ul li { margin-bottom: 12px; }
+.pj-card ul li:last-child,
+.pj-card-simple ul li:last-child { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .pj-cards { grid-template-columns: 1fr; }
+}
+
+/* a divider + labelled sub-group inside a card, e.g. Problem's
+   "Expected benefits" list beneath the main list */
+.pj-card-divider {
+  border-top: 1px solid var(--pj-card-border);
+  margin: 16px 0;
+}
+.pj-card .pj-card-subhead {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pj-pink-text);
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+/* ---------- ideate: 2x2 equal-height cards ---------- */
+.pj-ideate {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pj-gap);
+  align-items: stretch;
+}
+@media (max-width: 900px) {
+  .pj-ideate { grid-template-columns: 1fr; }
+}
+
+/* ---------- zoomable images (lightbox triggers) ---------- */
+.pj-zoom-btn {
+  display: block;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  cursor: zoom-in;
+  text-align: inherit;
+  font: inherit;
+}
+.pj-zoom-btn img { transition: transform 0.25s var(--ease-pop, ease), box-shadow 0.25s ease; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pj-zoom-btn:hover img,
+  .pj-zoom-btn:focus-visible img {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
+  }
+}
+.pj-zoom-btn:focus-visible {
+  outline: 3px solid var(--teal-text);
+  outline-offset: 4px;
+}
+
+/* ---------- image cards: one pattern for every figure on the page
+   (gallery grid, User Flow) — well + name + description ---------- */
+.pj-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pj-gap);
+}
+.pj-gallery-item {
+  display: flex;
+  flex-direction: column;
+}
+.pj-gallery-media {
+  display: block;
+  background: var(--pj-well);
+  padding: 16px;
+  border-radius: 12px;
+  aspect-ratio: 16 / 10;
+}
+.pj-gallery-media img,
+.pj-gallery-media .pj-img-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.pj-gallery-item figcaption {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 16px;
+}
+.pj-gallery-item .pj-gallery-name {
+  display: block;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.pj-gallery-item .pj-gallery-desc {
+  display: block;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+.pj-gallery-item--multi { grid-column: 1 / -1; }
+.pj-gallery-item--plain figcaption {
+  flex: none;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.pj-gallery-multi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.pj-gallery-multi img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--pj-card-border);
+}
+@media (max-width: 900px) {
+  .pj-gallery { grid-template-columns: 1fr; }
+  .pj-gallery-multi { grid-template-columns: 1fr; }
+}
+
+/* User Flow: same image-card pattern, but the well sizes to the
+   diagram instead of a fixed 16:10 box */
+.pj-user-flow-media {
+  aspect-ratio: auto;
+  max-width: 560px;
+  max-height: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pj-user-flow-media img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 720px;
+  object-fit: contain;
+}
+.pj-gallery-item h3.pj-gallery-name { font-family: var(--font-display); }
+.pj-user-flow-card { margin-top: var(--pj-gap); }
+
+/* ---------- what I learned ---------- */
+.pj-learned {
+  list-style: none;
+  margin: 0;
+}
+.pj-learned li { margin-bottom: 12px; }
+.pj-learned li:last-child { margin-bottom: 0; }
+
+/* ---------- missing-image fallback ---------- */
+.pj-img-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #ddd;
+  color: #555;
+  font-family: monospace;
+  font-size: 13px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 12px;
+}
+
+/* ---------- footer ----------
+   Structure/animation/classes are shared with the homepage footer
+   (.footer / .footer-inner / .footer-title / .footer-contact /
+   .footer-link / .link-underline live in components.css). This
+   project-only block adds just the two things that are genuinely
+   different: hooking the footer into the section rhythm, the CTA
+   button row, and an accessible title color for pink-on-white
+   contrast (var(--light-blue-text) on --footer-pink measures
+   2.55:1, below the 4.5:1 target; this dark green measures 4.21:1). */
+.pj-footer {
+  margin-top: var(--pj-section-gap);
+}
+.pj-footer .footer-title {
+  color: #0a4547;
+}
+.pj-footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+@media (max-width: 560px) {
+  .pj-footer-nav { flex-direction: column; align-items: stretch; }
+  .pj-footer-nav .pj-btn { width: 100%; text-align: center; }
+}
+.pj-btn {
+  position: relative;
+  display: inline-block;
+  padding: 16px 30px;
+  border: 3px solid var(--teal-text);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--teal-text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 8px 8px 0 var(--teal-text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pj-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0 var(--teal-text);
+}
+.pj-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 3px 3px 0 var(--teal-text);
+}
+
+/* ---------- lightbox ---------- */
+.pj-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pj-lightbox[hidden] { display: none; }
+.pj-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+.pj-lightbox-dialog {
+  position: relative;
+  max-width: 92vw;
+  max-height: 88vh;
+}
+.pj-lightbox-img {
+  display: block;
+  max-width: 92vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.pj-lightbox-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--teal-text);
+  background: #fff;
+  color: var(--teal-text);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.pj-lightbox-close:focus-visible {
+  outline: 3px solid var(--teal-text);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pj-lightbox-dialog { transition: transform 0.2s ease, opacity 0.2s ease; }
+}
+
+/* ---------- quote: a user quote, optionally with a translation ---------- */
+.pj-quote {
+  position: relative;
+  max-width: var(--pj-text-max);
+  margin: 0 auto;
+  padding: var(--pj-card-pad);
+  padding-left: calc(var(--pj-card-pad) + 4px);
+  background: var(--pj-card-bg);
+  border: 1px solid var(--pj-card-border);
+  border-radius: var(--pj-card-radius);
+  box-shadow: var(--pj-card-shadow);
+}
+.pj-quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--caption-pink);
+  border-radius: var(--pj-card-radius) 0 0 var(--pj-card-radius);
+}
+.pj-quote-text {
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--teal-text);
+  margin: 0;
+}
+.pj-quote-translation-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pj-pink-text);
+  font-weight: 700;
+  margin: 16px 0 4px;
+}
+.pj-quote-translation {
+  font-size: 14px;
+  line-height: 1.6;
+  font-style: italic;
+  color: #444;
+  margin: 12px 0 0;
+}
+.pj-quote-author {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  color: #2c2c2c;
+  margin-top: 16px;
+}
+
+/* ---------- showcase: bare device/mockup images, no card, no copy ---------- */
+.pj-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pj-gap);
+  align-items: center;
+}
+.pj-showcase img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+}
+@media (max-width: 900px) {
+  .pj-showcase { grid-template-columns: 1fr; }
+}
+
+/* ---------- media-fit: a figure well that sizes to the image instead
+   of the fixed 16:10 well, generic version of .pj-user-flow-media
+   (cap max-width/max-height per instance via inline style) ---------- */
+.pj-media-fit {
+  aspect-ratio: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pj-media-fit img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ---------- split-280: a wide column paired with a fixed 280px one
+   (Define's problem-visual photo) ---------- */
+.pj-split-280 {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--pj-gap);
+  align-items: start;
+}
+.pj-split-280--stretch { align-items: stretch; }
+@media (max-width: 900px) {
+  .pj-split-280 { grid-template-columns: 1fr; }
+}
+
+/* ---------- photo-fill: an absolute-fill photo that stretches to match
+   a sibling card's height (the one deliberate object-fit:cover
+   exception — a decorative photo, not a screenshot) ---------- */
+.pj-photo-fill {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.pj-photo-fill img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+}
+@media (max-width: 900px) {
+  .pj-photo-fill { height: 260px; }
+}
+
+/* ---------- headed grid: an h2 sitting above each card in a row,
+   instead of the h3 living inside the card (Problem/Process,
+   Results/Reflection) ---------- */
+.pj-headed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pj-gap);
+}
+.pj-headed-item h2 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--teal-text);
+  margin: 0 0 var(--pj-title-gap);
+}
+.pj-headed-item .pj-card-body p:last-child { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .pj-headed-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .pj-headed-item h2 { font-size: 32px; }
+}
+
+/* ---------- define grid: 1/2/3/4 image cards, sized by how many
+   actually exist (data-count set by the page) ---------- */
+.pj-define-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pj-gap);
+  margin-top: var(--pj-gap);
+}
+.pj-define-grid .pj-gallery-item--full { margin: 0; }
+.pj-define-grid[data-count="2"],
+.pj-define-grid[data-count="4"] {
+  grid-template-columns: 1fr 1fr;
+}
+.pj-define-grid[data-count="3"] {
+  grid-template-columns: 1fr 1fr;
+}
+.pj-define-grid[data-count="3"] .pj-gallery-item:first-child {
+  grid-column: 1 / -1;
+}
+@media (max-width: 900px) {
+  .pj-define-grid { grid-template-columns: 1fr; }
+  .pj-define-grid .pj-gallery-item:first-child { grid-column: auto; }
+}
+
+/* ---------- key-decision sub-heading: the same numbered-step look
+   as .pj-section-heading, one size down, paired with h3 ---------- */
+.pj-section-heading h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--teal-text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ---------- tabs: switches between stacked panels, all overlapping
+   in one grid cell so the frame height always matches the tallest
+   panel; JS-off shows every panel stacked instead ---------- */
+.pj-tabs { margin-top: var(--pj-gap); }
+.pj-tablist {
+  display: none;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+html.js .pj-tablist { display: flex; }
+.pj-tab {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid var(--pj-card-border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--pj-dark-edge);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.pj-tab[aria-selected="true"] {
+  background: var(--pj-dark-base);
+  border-color: var(--pj-dark-base);
+  color: #fff;
+}
+.pj-tab:focus-visible {
+  outline: 3px solid var(--teal-text);
+  outline-offset: 3px;
+}
+.pj-tab-panels { display: block; }
+html.js .pj-tab-panels { display: grid; }
+.pj-tab-panel {
+  grid-area: 1 / 1;
+  align-self: start;
+}
+.pj-tab-panel:not(:last-child) { margin-bottom: var(--pj-gap); }
+html.js .pj-tab-panel {
+  margin-bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+html.js .pj-tab-panel.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+.pj-tab-name {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: #1c1c1c;
+  margin: 0 0 8px;
+}
+html.js .pj-tab-name { display: none; }
+.pj-tab-panel img,
+.pj-tab-panel .pj-img-fallback { width: 100%; height: auto; }
+@media (prefers-reduced-motion: reduce) {
+  html.js .pj-tab-panel { transition: none; }
+}
+
+/* ---------- hero media: a full-width shot with a smaller one
+   overlapping its corner, instead of squeezing both into columns ---------- */
+.pj-hero-media {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--pj-gap);
+}
+.pj-hero-media > img,
+.pj-hero-media > .pj-zoom-btn {
+  width: 100%;
+}
+.pj-hero-media img { width: 100%; height: auto; display: block; }
+.pj-hero-overlay {
+  position: absolute;
+  left: var(--ov-x, 10.7%);
+  bottom: var(--ov-y, 15%);
+  width: var(--ov-w, 30%);
+  z-index: 2;
+}
+.pj-hero-overlay img {
+  border-radius: 12px;
+  border: 1px solid var(--pj-card-border);
+  box-shadow: 0 16px 40px rgba(20, 30, 70, 0.2);
+}
+@media (max-width: 900px) {
+  .pj-hero-overlay { --ov-w: 34%; --ov-x: 6%; --ov-y: 12%; }
+}

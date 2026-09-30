@@ -1,0 +1,67 @@
+/* ============================================
+   DESIGN TOKENS — single source of truth for every
+   color, font, spacing and timing value on the site.
+   Loaded first, by every page.
+   ============================================ */
+:root {
+  /* --- homepage palette --- */
+  --pink-bg: url('../assets/hero/hero-bg-gingham.png');
+  --cream: #FEF3E1;
+  --blue: none;
+  --footer-pink: #E884A0;
+  --teal-text: #0F8A90;
+  --light-blue-text: #92E5ED;
+  --caption-pink: #E985A1;
+
+  /* --- fonts --- */
+  --font-display: 'Bodoni 72', serif;
+  --font-script: 'Pacifico', cursive;
+  --font-pixel: 'Pixelify Sans', monospace;
+  --font-body: 'Source Serif Pro', serif;
+
+  /* --- entrance-animation system (.anim-rise / .anim-pop / .anim-handwrite) --- */
+  --dur: 800ms;
+  --dist: 16px;
+  --pop-dur: 700ms;
+  --handwrite-dur: 1000ms;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --stagger: 120ms;
+  --mobile-scale: 1;
+
+  /* --- project-template tokens --- */
+  --pj-bg: #FFFDFA;
+  --pj-card-bg: #FFFFFF;
+  --pj-card-border: #EFE8DF;
+  --pj-card-shadow: 0 2px 12px rgba(60, 40, 20, 0.05);
+  --pj-card-radius: 16px;
+  --pj-card-pad: 24px;
+  --pj-well: #F6F3EF;
+  --pj-marker: var(--teal-text);
+  --pj-pink-text: #C2456E;
+  --pj-gap: 24px;
+  --pj-section-gap: 96px;
+  --pj-title-gap: 24px;
+  --pj-container: 940px;
+  --pj-text-max: 720px;
+
+  /* --- Design Process dark band (project pages) --- */
+  --pj-dark-edge: #0F241B;
+  --pj-dark-glow: #438067;
+  --pj-dark-base: #1E4E3E;
+  --pj-dark-title: #DDF5EE;
+  --pj-dark-text: #FFFFFF;
+  --pj-dark-accent: #7FD3C0;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --dur: 640ms;
+    --dist: 12.8px;
+    --pop-dur: 560ms;
+    --handwrite-dur: 800ms;
+    --stagger: 96ms;
+    --mobile-scale: 0.8;
+    --pj-section-gap: 64px;
+  }
+}

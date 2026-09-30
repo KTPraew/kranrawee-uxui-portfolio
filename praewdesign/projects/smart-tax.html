@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js');</script>
+<title>Smart Tax | Praew Kranrawee — UX/UI Designer</title>
+<!-- favicon -->
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../assets/favicon/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../assets/favicon/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<!-- /favicon -->
+<meta name="description" content="A property survey platform that uses Mobile Mapping System (MMS) data to help local governments find more taxable assets.">
+<meta property="og:image" content="assets/projects/smart-tax/01-cover.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Source+Serif+Pro:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/motion.css">
+<link rel="stylesheet" href="../css/project.css">
+<link rel="stylesheet" href="../css/themes.css">
+</head>
+<body class="theme-smart-tax">
+
+<main>
+
+  <!-- HERO -->
+  <section class="pj-hero-cover">
+    <a class="pj-back-top" href="../index.html#projects">← Back to main page</a>
+    <div class="pj-hero-cover-crop">
+      <img class="pj-cover anim-rise" style="--delay:240ms;" src="../assets/projects/smart-tax/01-cover.webp" alt="Aerial view of a city, illustrating the properties Smart Tax helps municipalities survey" width="1280" height="224">
+    </div>
+  </section>
+
+  <section class="pj-col pj-hero-body">
+    <h1 class="pj-title anim-rise">Smart Tax</h1>
+    <p class="pj-lead pj-prose">A property survey platform that uses Mobile Mapping System (MMS) data to help local governments find more taxable assets.</p>
+    <p class="pj-body-text pj-prose">A registry system for land, building, sign, and condominium tax. It helps local governments collect property data to calculate tax assessments. AI helps survey some asset types, such as signs.</p>
+    <dl class="pj-meta">
+      <div class="pj-meta-item anim-rise">
+        <dt>Role</dt>
+        <dd>UX/UI Designer</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Tool</dt>
+        <dd>Figma</dd>
+      </div>
+      <div class="pj-meta-item anim-rise">
+        <dt>Project time</dt>
+        <dd>1 year (2024)</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- GOALS -->
+  <section class="pj-col pj-section">
+    <h2>Goals</h2>
+    <div class="pj-goals-layout">
+      <ul class="pj-goals">
+        <li class="anim-rise">Improve the design based on user feedback</li>
+        <li class="anim-rise">Reduce survey work for officers</li>
+        <li class="anim-rise">Bring AI into officers' daily work</li>
+      </ul>
+      <button type="button" class="pj-zoom-btn anim-pop" style="--delay:200ms; width:auto;" aria-label="Enlarge Smart Tax mobile screens">
+        <img class="pj-goals-image" src="../assets/projects/smart-tax/02-mobile.webp" alt="Three Smart Tax phone screens: a survey list with pending, in-progress, and completed counts; a property record with survey details and asset photos; and a map view with parcel boundaries and a street-level photo" width="1068" height="820">
+      </button>
+    </div>
+  </section>
+
+  <!-- DESIGN PROCESS -->
+  <section class="pj-band pj-section">
+    <div class="pj-col">
+      <h2 class="anim-rise">Design Process</h2>
+      <p class="pj-prose anim-rise" style="--delay:120ms;">I analyzed the legacy system that most officers already used, mainly through heuristic evaluation and usability testing. I also consulted domain experts to understand the system, find the problems, and improve the product for a better user experience.</p>
+      <nav class="pj-stepper anim-rise" style="--delay:240ms;" aria-label="Design process steps">
+        <a href="#empathize">Empathize</a>
+        <span class="pj-stepper-line" aria-hidden="true"></span>
+        <a href="#define">Define</a>
+        <span class="pj-stepper-line" aria-hidden="true"></span>
+        <a href="#ideate">Ideate</a>
+        <span class="pj-stepper-line" aria-hidden="true"></span>
+        <a href="#design">Design</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- 1 EMPATHIZE -->
+  <section class="pj-col pj-section" id="empathize">
+    <div class="pj-section-heading">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">1</span>
+      <h2 class="anim-rise" style="--delay:120ms;">Empathize</h2>
+    </div>
+    <div class="pj-card-simple">
+      <p class="pj-prose">I consulted domain experts to understand how the system works. Then I prepared interview questions about officers' daily tasks.</p>
+      <p class="pj-prose">Interviews with regular users showed their roles, workflows, and main problems.</p>
+    </div>
+  </section>
+
+  <!-- 2 DEFINE -->
+  <section class="pj-col pj-section" id="define">
+    <div class="pj-section-heading">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">2</span>
+      <h2 class="anim-rise" style="--delay:120ms;">Define</h2>
+    </div>
+    <div class="pj-cards">
+      <div class="pj-card anim-rise">
+        <div class="pj-card-body">
+          <h3>Problems</h3>
+          <ul>
+            <li>Outdated data means officers must survey again</li>
+            <li>Checking past records takes too many steps</li>
+            <li>Each officer works differently, based on their own experience</li>
+            <li>Importing and updating data is difficult</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pj-card anim-rise">
+        <div class="pj-card-body">
+          <h3>Insights</h3>
+          <ul>
+            <li>Too few staff for the workload</li>
+            <li>Don't want to do the same work twice</li>
+            <li>Want complete data without field surveys</li>
+            <li>Want to collect more tax revenue</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pj-card anim-rise">
+        <div class="pj-card-body">
+          <h3>Why it matters</h3>
+          <ul>
+            <li>Gaps let some owners avoid paying tax</li>
+            <li>The total taxable assets in the area are unknown</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 IDEATE -->
+  <section class="pj-col pj-section" id="ideate">
+    <div class="pj-section-heading">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">3</span>
+      <h2 class="anim-rise" style="--delay:120ms;">Ideate</h2>
+    </div>
+    <ul class="pj-ideate">
+      <li>Use a survey vehicle to detect newly installed signs in regular rounds</li>
+      <li>Keep a history of every survey for each record</li>
+      <li>Refine the user flow and run usability tests to set one standard way of working for every municipality</li>
+      <li>Design an import menu that fits the system's workflow</li>
+    </ul>
+
+    <figure class="pj-gallery-item pj-user-flow-card">
+      <button type="button" class="pj-zoom-btn" aria-label="Enlarge user flow diagram">
+        <span class="pj-gallery-media pj-user-flow-media">
+          <img src="../assets/projects/smart-tax/03-user-flow.webp" alt="User flow diagram for the Survey main menu" width="1046" height="1506" loading="lazy">
+        </span>
+      </button>
+      <figcaption>
+        <h3 class="pj-gallery-name">User Flow</h3>
+        <span class="pj-gallery-desc">Main menu: Survey</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- 4 DESIGN -->
+  <section class="pj-col pj-section" id="design">
+    <div class="pj-section-heading">
+      <span class="pj-section-num anim-handwrite" aria-hidden="true">4</span>
+      <h2 class="anim-rise" style="--delay:120ms;">Design</h2>
+    </div>
+
+    <div class="pj-gallery">
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge design system screenshot">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/smart-tax/04-design-system.webp" alt="React Ant Design component system used for Smart Tax" width="966" height="665" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">Design system: React Ant Design</span>
+        </figcaption>
+      </figure>
+
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge Login screen">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/smart-tax/05-login.webp" alt="Smart Tax login screen" width="944" height="548" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">Login</span>
+        </figcaption>
+      </figure>
+
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge Tax map screen">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/smart-tax/06-tax-map.webp" alt="Tax map screen for searching land parcels" width="676" height="382" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">Tax map</span>
+          <span class="pj-gallery-desc">Search for land parcels to survey.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge Survey details screen">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/smart-tax/07-survey-detail.webp" alt="Survey detail screen for officers" width="676" height="382" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">Survey details</span>
+          <span class="pj-gallery-desc">Officers survey the property.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge Sign survey screen">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/smart-tax/08-sign-streetview.webp" alt="Sign survey using Street View" width="676" height="382" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">Sign survey</span>
+          <span class="pj-gallery-desc">Find signs to survey in Street View.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge Pending approval screen">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/smart-tax/09-approval-table.webp" alt="Pending approval table view" width="676" height="406" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">Pending approval</span>
+          <span class="pj-gallery-desc">Table view (default).</span>
+        </figcaption>
+      </figure>
+
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge Compare data screen">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/smart-tax/10-compare-data.webp" alt="Compare existing data with AI-detected data" width="676" height="382" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">Compare data</span>
+          <span class="pj-gallery-desc">Compare existing data with AI-detected data before importing.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="pj-gallery-item anim-rise">
+        <button type="button" class="pj-zoom-btn" aria-label="Enlarge Survey map screen">
+          <span class="pj-gallery-media">
+            <img src="../assets/projects/smart-tax/11-survey-map.webp" alt="Survey map view" width="676" height="410" loading="lazy">
+          </span>
+        </button>
+        <figcaption>
+          <span class="pj-gallery-name">Survey map</span>
+          <span class="pj-gallery-desc">Map view.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="pj-gallery-item pj-gallery-item--multi pj-gallery-item--plain anim-rise">
+        <figcaption>
+          <span class="pj-gallery-name">Parcel tools</span>
+          <span class="pj-gallery-desc">Draw, split, merge, and delete land parcels.</span>
+        </figcaption>
+        <div class="pj-gallery-multi">
+          <img src="../assets/projects/smart-tax/12-parcel-draw.webp" alt="Drawing a land parcel" width="550" height="286" loading="lazy">
+          <img src="../assets/projects/smart-tax/13-parcel-split.webp" alt="Splitting a land parcel" width="550" height="286" loading="lazy">
+          <img src="../assets/projects/smart-tax/14-parcel-merge.webp" alt="Merging land parcels" width="550" height="286" loading="lazy">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- WHAT I LEARNED -->
+  <section class="pj-col pj-section pj-section--center">
+    <h2>What I learned</h2>
+    <ul class="pj-learned">
+      <li>Learned how local property tax works</li>
+      <li>Worked with flexible schedules</li>
+      <li>Used retrospectives to solve team issues</li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- FOOTER (same markup/classes/animation as the homepage footer;
+     only real differences: no tomato, plus the project nav buttons) -->
+<footer class="footer pj-footer">
+  <div class="wave-top">
+    <img src="../assets/waves/wave-pink-footer.png" alt="">
+  </div>
+  <div class="footer-inner">
+    <h2 class="footer-title"><span class="anim-rise" style="--delay:225ms;">Thanks</span> <span class="anim-rise" style="--delay:375ms;">for</span> <span class="anim-rise" style="--delay:525ms;">reading</span></h2>
+
+    <nav class="pj-footer-nav anim-rise" style="--delay:650ms;">
+      <a class="pj-btn" href="../index.html#projects">← Back to main page</a>
+      <a class="pj-btn" href="../index.html#projects">Next project →</a>
+    </nav>
+
+    <div class="footer-contact anim-rise" style="--delay:750ms;">
+      <a class="footer-link" href="mailto:Kranrawee.kt@gmail.com"><span>Kranrawee.kt@gmail.com</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="tel:0616942233"><span>061 694 2233</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="https://drive.google.com/uc?export=download&id=1JALiw4dbGJJrroEloQzsT8p9B2-5gzX2" aria-label="ดาวน์โหลด Resume (PDF)"><span>My Resume</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+      <a class="footer-link" href="https://linkedin.com/in/ktpraew" target="_blank" rel="noopener"><span>linkedin.com/in/ktpraew</span><svg class="link-underline" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,5 Q10,0 20,5 T40,5 T60,5 T80,5 T100,5" pathLength="1"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<div class="pj-lightbox" id="pj-lightbox" hidden>
+  <div class="pj-lightbox-backdrop" data-pj-lightbox-close></div>
+  <div class="pj-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <button type="button" class="pj-lightbox-close" data-pj-lightbox-close aria-label="Close">&times;</button>
+    <img class="pj-lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<script src="../js/motion.js"></script>
+<script src="../js/lightbox.js"></script>
+<script>
+(function () {
+  var M = window.PJMotion;
+  var reduceMotion = M.reduceMotion;
+  var qs = M.qs, qsa = M.qsa, reveal = M.reveal, revealHandwrite = M.revealHandwrite, ms = M.ms;
+
+  if (reduceMotion) return; /* everything else shows instantly via CSS; no observers/timers needed */
+
+  /* ---------- hero: plays immediately on load ---------- */
+  function runHero() {
+    reveal(qs('.pj-title'));
+    setTimeout(function () { reveal(qs('.pj-cover')); }, ms(240));
+  }
+  requestAnimationFrame(function () { requestAnimationFrame(runHero); });
+
+  /* ---------- scroll-triggered reveals ---------- */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        reveal(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  qsa('.pj-band .anim-rise').forEach(function (el) { io.observe(el); });
+  qsa('.pj-meta-item').forEach(function (el) { io.observe(el); });
+  qsa('.pj-goals li').forEach(function (el) { io.observe(el); });
+  qsa('.pj-goals-layout .anim-pop').forEach(function (el) { io.observe(el); });
+  qsa('.pj-card').forEach(function (el) { io.observe(el); });
+  qsa('.pj-ideate li').forEach(function (el) { io.observe(el); });
+  qsa('.pj-gallery-item').forEach(function (el) { io.observe(el); });
+
+  /* footer: same observer targets as the homepage footer */
+  ['.footer-tomato', '.footer-contact', '.pj-footer-nav'].forEach(function (sel) {
+    var el = qs(sel);
+    if (el) io.observe(el);
+  });
+  qsa('.footer-title .anim-rise').forEach(function (span) { io.observe(span); });
+
+  /* numbered section headings: the handwrite number clips itself via
+     clip-path, so observe the (unclipped) wrapper instead, same fix
+     as the homepage heading-pair reveal */
+  qsa('.pj-section-heading').forEach(function (wrap) {
+    var ioHeading = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          revealHandwrite(qs('.pj-section-num', wrap));
+          reveal(qs('h2', wrap));
+          ioHeading.unobserve(wrap);
+        }
+      });
+    }, { threshold: 0.15 });
+    ioHeading.observe(wrap);
+  });
+})();
+</script>
+
+</body>
+</html>
