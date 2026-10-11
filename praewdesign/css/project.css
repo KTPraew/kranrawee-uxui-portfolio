@@ -93,15 +93,36 @@ a:focus-visible,
   box-shadow: 0 6px 14px rgba(15, 138, 144, 0.25);
 }
 
+/* hero without a cover image: the Back button sits in the normal flow
+   and the title follows after a fixed gap */
+.pj-hero-body--flow { padding-top: 24px; }
+.pj-back-top--flow {
+  position: relative;
+  top: auto;
+  left: auto;
+  display: flex;
+  width: fit-content;
+}
+.pj-back-top--flow + .pj-title { margin-top: 72px; }
+@media (max-width: 768px) {
+  .pj-back-top--flow + .pj-title { margin-top: 40px; }
+}
+
 /* ---------- layout shells (only two widths on this template) ---------- */
 .pj-col {
   max-width: var(--pj-container);
   margin: 0 auto;
   padding: 0 24px;
 }
-.pj-prose {
-  max-width: var(--pj-text-max);
-}
+/* body text spans the container so its right edge lines up with the images,
+   cards and scenes beside it; --pj-text-max now only sizes .pj-quote.
+   .pj-prose stays in the markup as the "running text" marker */
+.pj-prose { max-width: none; }
+
+/* line breaking: running text and lists avoid short last lines, headings
+   and captions balance. Quotes and stepper labels keep their own wrapping. */
+.pj-col :is(p, li):not(.pj-quote *, .pj-stepper *) { text-wrap: pretty; }
+.pj-col :is(h1, h2, h3, figcaption) { text-wrap: balance; }
 
 .pj-section {
   margin-top: var(--pj-section-gap);
@@ -136,7 +157,7 @@ a:focus-visible,
 
 .pj-title {
   font-family: var(--font-display);
-  color: var(--teal-text);
+  color: var(--pj-title-color);
   font-size: 72px;
   line-height: 1.1;
   margin: 0 0 var(--pj-title-gap);
@@ -144,6 +165,8 @@ a:focus-visible,
 @media (max-width: 560px) {
   .pj-title { font-size: 48px; }
 }
+/* the line right under the project name shares its color */
+.pj-title + .pj-lead { color: var(--pj-title-color); }
 
 .pj-lead {
   font-size: 20px;
@@ -202,6 +225,19 @@ a:focus-visible,
   .pj-meta--6 { grid-template-columns: 1fr; }
 }
 
+/* 4-card meta grid (4 columns, 2 under 900px, 1 under 560px) */
+.pj-meta--4 { grid-template-columns: repeat(4, 1fr); }
+.pj-meta--4 .pj-meta-item:nth-child(1) { --delay: 0ms; }
+.pj-meta--4 .pj-meta-item:nth-child(2) { --delay: 120ms; }
+.pj-meta--4 .pj-meta-item:nth-child(3) { --delay: 240ms; }
+.pj-meta--4 .pj-meta-item:nth-child(4) { --delay: 360ms; }
+@media (max-width: 900px) {
+  .pj-meta--4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .pj-meta--4 { grid-template-columns: 1fr; }
+}
+
 /* ---------- section headings (all h2 share one size/position;
    the 4 numbered ones add a script-font index before the text) ---------- */
 .pj-section-heading {
@@ -224,16 +260,21 @@ a:focus-visible,
   line-height: 1.1;
 }
 .pj-section > h2:only-child,
-.pj-section > h2:first-child {
+.pj-section > h2:first-child,
+.pj-trio h2,
+.pj-hero-body h2 {
   font-family: var(--font-display);
   font-size: 40px;
   color: var(--teal-text);
   margin: 0 0 var(--pj-title-gap);
 }
+.pj-hero-body h2 { margin-top: calc(var(--pj-gap) * 2); }
 @media (max-width: 768px) {
   .pj-section-num,
   .pj-section-heading h2,
-  .pj-section > h2 { font-size: 32px; }
+  .pj-section > h2,
+  .pj-trio h2,
+  .pj-hero-body h2 { font-size: 32px; }
 }
 
 .pj-section h3 { margin: 0; }
@@ -325,7 +366,8 @@ a:focus-visible,
   margin-top: 28px;
   flex-wrap: wrap;
 }
-.pj-stepper a {
+.pj-stepper a,
+.pj-stepper-step {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -345,6 +387,10 @@ a:focus-visible,
   white-space: nowrap;
 }
 .pj-stepper a:hover { transform: translateY(-2px); }
+/* static variant (data-static): an <ol> that only illustrates the steps.
+   Its steps are plain <li>, so no focus, no hover and no pointer cursor;
+   the connector stays centered between the capsules in both directions */
+.pj-stepper[data-static] { list-style: none; }
 .pj-stepper-line {
   flex: 1;
   min-width: 16px;
@@ -352,8 +398,10 @@ a:focus-visible,
   margin: 0 8px;
 }
 @media (max-width: 560px) {
+  .pj-stepper[data-static] .pj-stepper-line { margin: 4px auto; }
   .pj-stepper { flex-direction: column; align-items: stretch; }
-  .pj-stepper a { flex: none; }
+  .pj-stepper a,
+  .pj-stepper-step { flex: none; }
   .pj-stepper-line { width: 2px; min-height: 16px; border-top: none; border-left: 2px dashed var(--teal-text); margin: 4px 0 4px 20px; }
 }
 
@@ -395,7 +443,6 @@ a:focus-visible,
   font-size: 20px;
   line-height: 1.6;
   color: var(--pj-dark-text);
-  max-width: var(--pj-text-max);
   margin: 0 0 20px;
 }
 .pj-band .pj-stepper {
@@ -440,12 +487,14 @@ a:focus-visible,
   .pj-method-col::after { display: none; }
 }
 .pj-band .pj-stepper a,
+.pj-band .pj-stepper-step,
 .pj-band .pj-method-step {
   background: #fff;
   border: 2px solid var(--pj-dark-accent);
   color: var(--pj-dark-edge);
 }
-.pj-band .pj-stepper a { padding: 12px 28px; }
+.pj-band .pj-stepper a,
+.pj-band .pj-stepper-step { padding: 12px 28px; }
 .pj-method-step {
   display: flex;
   align-items: center;
@@ -574,6 +623,11 @@ a:focus-visible,
   outline: 3px solid var(--teal-text);
   outline-offset: 4px;
 }
+/* bare variant: for images with transparent corners (devices, multi-screen
+   shots): no frame, no border and no shadow, not even on hover */
+.pj-zoom-btn--bare img { width: 100%; height: auto; border: 0; border-radius: 0; box-shadow: none; }
+.pj-zoom-btn--bare:hover img,
+.pj-zoom-btn--bare:focus-visible img { box-shadow: none; }
 
 /* ---------- image cards: one pattern for every figure on the page
    (gallery grid, User Flow) — well + name + description ---------- */
@@ -811,7 +865,7 @@ a:focus-visible,
   background: var(--caption-pink);
   border-radius: var(--pj-card-radius) 0 0 var(--pj-card-radius);
 }
-.pj-quote-text {
+.pj-section .pj-quote-text {
   font-size: 20px;
   line-height: 1.7;
   color: var(--teal-text);
@@ -825,7 +879,7 @@ a:focus-visible,
   font-weight: 700;
   margin: 16px 0 4px;
 }
-.pj-quote-translation {
+.pj-section .pj-quote-translation {
   font-size: 14px;
   line-height: 1.6;
   font-style: italic;
@@ -1063,3 +1117,67 @@ html.js .pj-tab-name { display: none; }
 @media (max-width: 900px) {
   .pj-hero-overlay { --ov-w: 34%; --ov-x: 6%; --ov-y: 12%; }
 }
+
+/* ---------- split-2: two equal columns, text + media. --media-first puts
+   the media column on the left on desktop only (text stays first in the
+   DOM, so it also comes first when stacked) ---------- */
+.pj-split-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--pj-gap) calc(var(--pj-gap) * 2);
+  align-items: center;
+}
+.pj-split-2 > img { width: 100%; height: auto; }
+.pj-split-2--media-first > :last-child { order: -1; }
+.pj-split-2--stretch { align-items: stretch; }
+.pj-split-2--stretch > .pj-scene { margin-top: 0; }
+@media (max-width: 900px) {
+  .pj-split-2 { grid-template-columns: 1fr; }
+  .pj-split-2--media-first > :last-child { order: 0; }
+}
+/* --md: unequal columns, collapse at 720px instead of 900px */
+.pj-split-2--md { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+@media (max-width: 900px) {
+  .pj-split-2--md { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  .pj-split-2--md.pj-split-2--media-first > :last-child { order: -1; }
+}
+@media (max-width: 719px) {
+  .pj-split-2--md { grid-template-columns: 1fr; }
+  .pj-split-2--md.pj-split-2--media-first > :last-child { order: 0; }
+}
+
+/* ---------- duo: two bare images side by side at equal height. Each item's
+   width follows its image through --ratio (file width / height). Stacked and
+   centered under 900px ---------- */
+.pj-duo {
+  display: flex;
+  gap: var(--pj-gap);
+  align-items: center;
+  justify-content: center;
+}
+.pj-duo > * { flex: var(--ratio, 1) 1 0; min-width: 0; }
+
+/* ---------- trio: two headed cards side by side (one image in the left,
+   two in the right), all three images at one height. Each card's --ratio is
+   the file width / height of its image(s) and its flex-basis is just its own
+   padding and border (+ --extra for a gap inside it), so the free space is
+   shared by ratio and every image ends up the same height. Under 720px the
+   cards stack; the right card keeps its pair side by side ---------- */
+.pj-trio {
+  display: flex;
+  gap: var(--pj-gap);
+  align-items: stretch;
+}
+.pj-trio > .pj-card {
+  flex: var(--ratio, 1) 1 calc(var(--pj-card-pad) * 2 + 2px + var(--extra, 0px));
+  min-width: 0;
+}
+.pj-trio h2 { margin-top: 0; }
+@media (max-width: 719px) {
+  .pj-trio { flex-direction: column; }
+  .pj-trio > .pj-card { flex: none; }
+}
+
+/* ---------- a white card inside the dark band: the band's white paragraph
+   color must not leak into it ---------- */
+.pj-band .pj-card p:not(.pj-card-subhead) { color: inherit; }

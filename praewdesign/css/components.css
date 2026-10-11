@@ -236,23 +236,30 @@
   margin-top: 72px;
 }
 .pj-scene:first-of-type { margin-top: 0; }
+.pj-scene-head {
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  column-gap: 14px;
+  align-items: stretch;
+  margin: 0 0 20px;
+}
+/* the vertical bar spans both rows (title, description); the second row is
+   empty and has no height when there is no description, so the bar is as tall
+   as the title alone, or the title plus its description */
+.pj-scene-head::before {
+  content: '';
+  grid-row: 1 / span 2;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--pj-pink-text);
+}
+.pj-scene-head > * { grid-column: 2; }
 .pj-scene-title {
-  position: relative;
-  display: inline-block;
   font-family: var(--font-display);
   font-size: 24px;
-  color: var(--teal-text);
-  margin: 0 0 20px;
-  padding-bottom: 12px;
-}
-.pj-scene-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 32px;
-  height: 3px;
-  background: var(--caption-pink);
+  color: var(--pj-pink-text);
+  line-height: 1.2;
+  margin: 0;
 }
 .pj-scene-media {
   position: relative;
@@ -265,7 +272,13 @@
   border: 1px solid var(--pj-card-border);
   box-shadow: 0 8px 32px rgba(40, 50, 80, 0.10);
 }
-.pj-scene > figcaption {
+.pj-scene-head .pj-scene-desc {
+  margin: 4px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444;
+}
+.pj-scene > figcaption:not(.pj-scene-head) {
   margin-top: 12px;
   font-size: 15px;
   line-height: 1.5;
@@ -299,4 +312,113 @@
 }
 @media (max-width: 900px) {
   .pj-overlay { width: 46%; bottom: -32px; }
+}
+
+/* ============================================
+   QUADRANTS — a 2x2 matrix on a dark panel (e.g. SWOT).
+   Colors come only from the --pj-dark-* theme variables.
+   No overflow:hidden, so the rounded corners are on the
+   background itself and text can never be clipped. No aspect-ratio:
+   when the lists are taller than the ratio, the browser freezes the two
+   rows at different heights and the divider cuts through text.
+   ============================================ */
+.pj-quadrants {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 20px;
+  border-radius: 24px;
+  background: var(--pj-dark-base);
+  color: var(--pj-dark-text);
+  box-shadow: var(--pj-card-shadow);
+  /* same system sans stack the coming-soon page uses; no webfont is loaded */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+.pj-quadrants::before,
+.pj-quadrants::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+.pj-quadrants::before {
+  left: calc(50% - 1px);
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: color-mix(in srgb, var(--pj-dark-text) 28%, transparent);
+}
+.pj-quadrants::after {
+  left: 20px;
+  right: 20px;
+  top: calc(50% - 1px);
+  height: 2px;
+  background: color-mix(in srgb, var(--pj-dark-accent) 60%, transparent);
+}
+.pj-quadrant {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px 18px;
+  min-width: 0;
+}
+/* bottom row: list sits at the top of the cell, label at its very bottom */
+.pj-quadrant:nth-child(n + 3) {
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+.pj-quadrant:nth-child(odd) h3 { align-self: flex-start; }
+.pj-quadrant:nth-child(even) h3 { align-self: flex-end; }
+.pj-quadrant h3 {
+  margin: 0;
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  background: var(--pj-dark-accent);
+  color: var(--pj-dark-edge);
+}
+.pj-quadrant ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.pj-quadrant li {
+  position: relative;
+  padding-left: 16px;
+  margin: 0 0 3px;
+}
+.pj-quadrant li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pj-dark-accent);
+}
+@media (max-width: 479px) {
+  .pj-quadrants {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  .pj-quadrants::before,
+  .pj-quadrants::after { display: none; }
+  .pj-quadrant,
+  .pj-quadrant:nth-child(n + 3) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .pj-quadrant h3,
+  .pj-quadrant:nth-child(even) h3 { align-self: flex-start; }
+  .pj-quadrant + .pj-quadrant {
+    border-top: 1px solid color-mix(in srgb, var(--pj-dark-text) 20%, transparent);
+  }
 }

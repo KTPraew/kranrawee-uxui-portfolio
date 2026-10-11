@@ -36,8 +36,8 @@
 
   <section class="pj-col pj-hero-body">
     <h1 class="pj-title anim-rise">Speedy Doc</h1>
-    <p class="pj-lead pj-prose">Document management system</p>
-    <p class="pj-body-text pj-prose">A document management system (DMS) for government and private organizations. Its features can be customized to each department's structure to streamline workflows and improve efficiency. It keeps documents in one secure place, makes them easy to find, and improves collaboration.</p>
+    <p class="pj-lead">Document management system</p>
+    <p class="pj-body-text">A document management system (DMS) for government and private organizations. Its features can be customized to each department's structure to streamline workflows and improve efficiency. It keeps documents in one secure place, makes them easy to find, and improves collaboration.</p>
 
     <div class="pj-hero-media">
       <button type="button" class="pj-zoom-btn anim-rise" aria-label="Enlarge organization management screen">
@@ -256,7 +256,9 @@
     </div>
 
     <figure class="pj-scene" style="margin-top: 72px; margin-bottom: 56px;">
-      <h3 class="pj-scene-title anim-rise">My Drive</h3>
+      <figcaption class="pj-scene-head anim-rise">
+        <h3 class="pj-scene-title">My Drive</h3>
+      </figcaption>
       <div class="pj-scene-media">
         <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge My Drive screen">
           <img src="../assets/projects/speedy-doc/10-my-drive.webp" alt="My Drive screen listing documents with access level, last modified date, and file size" width="1200" height="774" loading="lazy">
@@ -271,7 +273,9 @@
     </figure>
 
     <figure class="pj-scene" style="margin-bottom: 40px;">
-      <h3 class="pj-scene-title anim-rise">Shared</h3>
+      <figcaption class="pj-scene-head anim-rise">
+        <h3 class="pj-scene-title">Shared</h3>
+      </figcaption>
       <div class="pj-scene-media">
         <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge Shared screen">
           <img src="../assets/projects/speedy-doc/12-shared.webp" alt="Shared files screen listing files shared with the user, with file size and owning department" width="1200" height="746" loading="lazy">
@@ -286,7 +290,9 @@
     </figure>
 
     <figure class="pj-scene">
-      <h3 class="pj-scene-title anim-rise">Favorite</h3>
+      <figcaption class="pj-scene-head anim-rise">
+        <h3 class="pj-scene-title">Favorite</h3>
+      </figcaption>
       <div class="pj-scene-media">
         <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge Favorite screen">
           <img src="../assets/projects/speedy-doc/14-favorite.webp" alt="Favorited files screen listing starred documents with access level and file size" width="1200" height="746" loading="lazy">
@@ -295,7 +301,9 @@
     </figure>
 
     <figure class="pj-scene">
-      <h3 class="pj-scene-title anim-rise">Report</h3>
+      <figcaption class="pj-scene-head anim-rise">
+        <h3 class="pj-scene-title">Report</h3>
+      </figcaption>
       <div class="pj-scene-media">
         <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge Report screen">
           <img src="../assets/projects/speedy-doc/15-report.webp" alt="Storage usage report screen with total used and remaining space, and a table of usage by department and user" width="1200" height="708" loading="lazy">
@@ -304,7 +312,9 @@
     </figure>
 
     <figure class="pj-scene">
-      <h3 class="pj-scene-title anim-rise">Account management</h3>
+      <figcaption class="pj-scene-head anim-rise">
+        <h3 class="pj-scene-title">Account management</h3>
+      </figcaption>
       <div class="pj-scene-media">
         <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge Account management screen">
           <img src="../assets/projects/speedy-doc/16-account.webp" alt="User account management screen listing users with role, department, last edited date, and an active status toggle" width="1200" height="676" loading="lazy">
@@ -383,7 +393,7 @@
   qsa('.pj-quote-translation-wrap').forEach(function (el) { io.observe(el); });
   qsa('#define .pj-split-280 .anim-pop').forEach(function (el) { io.observe(el); });
   qsa('.pj-showcase .anim-pop').forEach(function (el) { io.observe(el); });
-  qsa('.pj-scene-title').forEach(function (el) { io.observe(el); });
+  qsa('.pj-scene-head').forEach(function (el) { io.observe(el); });
   qsa('.pj-scene-media > .pj-zoom-btn').forEach(function (el) { io.observe(el); });
   qsa('.pj-overlay').forEach(function (el) { io.observe(el); });
 
