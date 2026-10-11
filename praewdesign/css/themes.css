@@ -37,3 +37,28 @@
   --pj-dark-accent: #6FDCC0;
   --pj-marker: #00A07B;
 }
+
+/* the orange accent measures only about 2.2:1 on the default glow, so the
+   glow here is held at the base color to keep orange lines and borders at
+   3:1 or better anywhere on the band */
+.theme-chat-crm {
+  --pj-dark-base: #3B4F7A;
+  --pj-dark-edge: #26334F;
+  --pj-dark-glow: #3B4F7A;
+  --pj-dark-title: #FFF3E6;
+  --pj-dark-text: #FFFFFF;
+  --pj-dark-accent: #FF7900;
+  --pj-marker: #FF7900;
+}
+
+/* orange process band, same look as the other projects' dark bands (dark
+   edge, brighter glow, white text, light accent) in orange. Set only inside
+   the band so the SWOT panel keeps the theme's navy variables above. */
+.theme-chat-crm .pj-band {
+  --pj-dark-base: #9A4700;
+  --pj-dark-edge: #4A2000;
+  --pj-dark-glow: #B85A12;
+  --pj-dark-title: #FFF0E0;
+  --pj-dark-text: #FFFFFF;
+  --pj-dark-accent: #FFCFA0;
+}

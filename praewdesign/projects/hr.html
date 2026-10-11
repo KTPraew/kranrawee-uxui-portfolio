@@ -38,8 +38,8 @@
 
   <section class="pj-col pj-hero-body">
     <h1 class="pj-title anim-rise">HR Management System</h1>
-    <p class="pj-lead pj-prose">Human resources system for Subdistrict Administrative Organizations (SAO)</p>
-    <p class="pj-body-text pj-prose">It turns complex civil service rules and regulations into a UI that works in real daily use.</p>
+    <p class="pj-lead">Human resources system for Subdistrict Administrative Organizations (SAO)</p>
+    <p class="pj-body-text">It turns complex civil service rules and regulations into a UI that works in real daily use.</p>
 
     <figure class="pj-scene" style="margin-top: 0;">
       <div class="pj-scene-media">
@@ -193,33 +193,39 @@
     <p class="pj-prose anim-rise" style="--delay:120ms;">The main screens of the system.</p>
 
     <figure class="pj-scene">
-      <h3 class="pj-scene-title anim-rise">Dashboard</h3>
+      <figcaption class="pj-scene-head anim-rise">
+        <h3 class="pj-scene-title">Dashboard</h3>
+        <p class="pj-scene-desc">Overview with summary numbers, charts, filters, and a date picker.</p>
+      </figcaption>
       <div class="pj-scene-media">
         <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge HR dashboard overview screen">
           <img src="../assets/projects/hr/02-dashboard.webp" alt="HR dashboard overview screen showing total employee count, gender split, leave and late arrivals, account status, and employee category breakdown in donut charts" width="1920" height="1174">
         </button>
       </div>
-      <figcaption>Overview with summary numbers, charts, filters, and a date picker.</figcaption>
     </figure>
 
     <figure class="pj-scene">
-      <h3 class="pj-scene-title anim-rise">Employee report</h3>
+      <figcaption class="pj-scene-head anim-rise">
+        <h3 class="pj-scene-title">Employee report</h3>
+        <p class="pj-scene-desc">Employee data in a table view.</p>
+      </figcaption>
       <div class="pj-scene-media">
         <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge employee table report screen">
           <img src="../assets/projects/hr/06-employee-report.webp" alt="Employee table listing multiple staff members with ID numbers, department, position, and work status" width="1920" height="1361">
         </button>
       </div>
-      <figcaption>Employee data in a table view.</figcaption>
     </figure>
 
     <figure class="pj-scene">
-      <h3 class="pj-scene-title anim-rise">Evaluation detail</h3>
+      <figcaption class="pj-scene-head anim-rise">
+        <h3 class="pj-scene-title">Evaluation detail</h3>
+        <p class="pj-scene-desc">The detail of an employee evaluation.</p>
+      </figcaption>
       <div class="pj-scene-media">
         <button type="button" class="pj-zoom-btn anim-rise" style="--delay:120ms;" aria-label="Enlarge performance evaluation detail screen">
           <img src="../assets/projects/hr/07-evaluation.webp" alt="Performance evaluation detail screen showing evaluator and evaluee with scored competency tables and an overall rating" width="1920" height="2000">
         </button>
       </div>
-      <figcaption>The detail of an employee evaluation.</figcaption>
     </figure>
   </section>
 
@@ -356,7 +362,7 @@
   qsa('.pj-section > p.anim-rise').forEach(function (el) { io.observe(el); });
   qsa('.pj-band .anim-rise').forEach(function (el) { io.observe(el); });
   qsa('.pj-tabs').forEach(function (el) { io.observe(el); });
-  qsa('.pj-scene-title').forEach(function (el) { io.observe(el); });
+  qsa('.pj-scene-head').forEach(function (el) { io.observe(el); });
   qsa('.pj-scene-media > .pj-zoom-btn').forEach(function (el) { io.observe(el); });
 
   /* footer: same observer targets as the homepage footer */
